@@ -41,6 +41,10 @@ if($count != 0){
     ";
 }
 
+session_start();
+$_SESSION["parent_session_id"] = session_id();
+$_SESSION["pIC"] = $pIC;
+
 
 $query = "INSERT INTO Student VALUES('$stdMKN', '$stdName', '$stdGender', '$stdAge', '$stdDOB', '$stdFavorColor', '$stdDiapers', '$stdSession', '$stdMeal', '$target_file', 0 , '$pIC', NULL, '$stdProgram')";
 mysqli_query($con, $query);

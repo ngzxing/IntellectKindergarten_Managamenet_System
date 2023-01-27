@@ -52,8 +52,8 @@
 <ul>
 <li class="clock"><i class="lnr lnr-clock"></i>Mon - Fri : 8:00 - 12:00</li>
 <li class="call"><i class="lnr lnr-smartphone"></i>Call Us +731 234 5678</li>
-<li><a href="home-1.html#login-form" class="fancybox">Login</a></li>
-<li><a href="home-1.html#register-form" class="fancybox">Signup</a></li>
+<li><a href="logoutProcess.php" class="fancybox">Logout</a></li>
+<li><a href="registerParent.php" class="fancybox">Signup</a></li>
 </ul>
 </nav>
 </div> 
@@ -127,14 +127,14 @@ Blog <span class="caret"></span></a>
 </ul>
 </li>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="home-1.html#">
-Shop <span class="caret"></span></a>
+Login <span class="caret"></span></a>
 <ul class="dropdown-menu" role="menu">
-<li><a href="shopping-cart.html">Shopping Cart</a></li>
-<li><a href="checkout.html">Checkout</a></li>
+<li><a href="loginParent.php">Login As Parent</a></li>
+<li><a href="loginTeac.php">Login As Teacher</a></li>
+<li><a href="loginTeac.php">Login As Admin</a></li>
 </ul>
 </li>
 <li><a href="contactus.html">Contact Us</a></li>
-<li class="pull-right"><a title="View your cart" href="shopping-cart.html" class="menu-cart"><i class="lnr lnr-cart"></i> <span>0</span></a></li>
 </ul>
 </div>
 </nav>

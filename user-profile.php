@@ -31,26 +31,30 @@ include "leftSideBarParent.php";
 									<div class="form-group row">
 										<label class="col-sm-2 col-form-label">Full Name</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="Mark Andre">
+											<input class="form-control" type="text" value = "LOO ZHI YUAN">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-sm-2 col-form-label">Occupation</label>
+										<label class="col-sm-2 col-form-label">IC</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="CTO">
+											<input class="form-control" type="text" value="020707011234">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-sm-2 col-form-label">Company Name</label>
+										<label class="col-sm-2 col-form-label">Position</label>
+										<p>Teacher</p>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label">E-mail</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="EduChamp">
-											<span class="help">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
+											<input class="form-control" type="text" value="looyuan@graduate.utm.my">
+											<!-- <span class="help">If you want your invoices addressed to a company. Leave blank to use your full name.</span> -->
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-sm-2 col-form-label">Phone No.</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="+120 012345 6789">
+											<input class="form-control" type="text" value="60162756776">
 										</div>
 									</div>
 									
@@ -64,25 +68,25 @@ include "leftSideBarParent.php";
 									<div class="form-group row">
 										<label class="col-sm-2 col-form-label">Address</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="5-S2-20 Dummy City, UK">
+											<input class="form-control" type="text" value="5-Lorong Yew Rui Xiang">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-sm-2 col-form-label">City</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="US">
+											<input class="form-control" type="text" value="Bangan Serai">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-sm-2 col-form-label">State</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="California">
+											<input class="form-control" type="text" value="Kedah">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-sm-2 col-form-label">Postcode</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="000702">
+											<input class="form-control" type="text" value="00000">
 										</div>
 									</div>
 
@@ -90,34 +94,41 @@ include "leftSideBarParent.php";
 
 									<div class="form-group row">
 										<div class="col-sm-10 ml-auto">
-											<h3 class="m-form__section">3. Social Links</h3>
+											<h3 class="m-form__section">3. Salary</h3>
 										</div>
 									</div>
 
 									<div class="form-group row">
-										<label class="col-sm-2 col-form-label">Linkedin</label>
+										<label class="col-sm-2 col-form-label">Bank Account</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="www.linkedin.com">
+											<input class="form-control" type="text" value="7000612567">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-sm-2 col-form-label">Facebook</label>
+										<label class="col-sm-2 col-form-label">Bank</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="www.facebook.com">
+											<input class="form-control" type="text" value="CIMB">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-sm-2 col-form-label">Twitter</label>
+										<label class="col-sm-2 col-form-label">EPF</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="www.twitter.com">
+											<input class="form-control" type="text" value="">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-sm-2 col-form-label">Instagram</label>
+										<label class="col-sm-2 col-form-label">Basic Salary Per Hour</label>
 										<div class="col-sm-7">
-											<input class="form-control" type="text" value="www.instagram.com">
+											<p>RM 75</p>
 										</div>
 									</div>
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label">OT Salary Per Hour</label>
+										<div class="col-sm-7">
+											<p>RM 90</p>
+										</div>
+									</div>
+									
 								</div>
 								<div class="">
 									<div class="">

@@ -55,7 +55,7 @@ include "dbconnect.php";
 	<!-- STYLESHEETS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap5.min.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
 	
 </head>
@@ -268,9 +268,15 @@ include "dbconnect.php";
 		                </a>
 		            </li>
 					<li>
+						<a href="activityPostParent.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-book"></i></span>
+		                	<span class="ttr-label">Activity</span>
+		                </a>
+		            </li>
+					<li>
 						<a href="#" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-email"></i></span>
-		                	<span class="ttr-label">Mailbox</span>
+		                	<span class="ttr-label">Finance</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
 		                <ul>
@@ -286,37 +292,25 @@ include "dbconnect.php";
 		                </ul>
 		            </li>
 					<li>
+						<a href="performStudent.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
+		                	<span class="ttr-label">Student Performance</span>
+		                </a>
+		            </li>
+					<li>
 						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-calendar"></i></span>
-		                	<span class="ttr-label">Calendar</span>
+							<span class="ttr-icon"><i class="ti-comments"></i></span>
+		                	<span class="ttr-label">Student Status</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
 		                <ul>
 		                	<li>
-		                		<a href="basic-calendar.php" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
+		                		<a href="mailbox.php" class="ttr-material-button"><span class="ttr-label">Covid Status</span></a>
 		                	</li>
 		                	<li>
-		                		<a href="list-view-calendar.php" class="ttr-material-button"><span class="ttr-label">List View</span></a>
+		                		<a href="mailbox-compose.php" class="ttr-material-button"><span class="ttr-label">Attendance</span></a>
 		                	</li>
 		                </ul>
-		            </li>
-					<li>
-						<a href="bookmark.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
-		                	<span class="ttr-label">Bookmarks</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="review.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-comments"></i></span>
-		                	<span class="ttr-label">Review</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="add-listing.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
-		                	<span class="ttr-label">Add listing</span>
-		                </a>
 		            </li>
 					<li>
 						<a href="#" class="ttr-material-button">

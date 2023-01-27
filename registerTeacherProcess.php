@@ -37,7 +37,7 @@ if($count != 0){
     ';
 }
 
-$query = "INSERT INTO Teacher VALUES('$ic', '$name', '$password','-', '-', '-', '$phone','$address', '$city', '$postcode', '$state', '$email', 0, 0 , '$target_file', 'T')";
+$query = "INSERT INTO Teacher VALUES('$ic', '$name', '$password','-', '-', '-', '$phone','$address', '$city', '$postcode', '$state', '$email', 0, 0 , '$target_file', 0)";
 mysqli_query($con, $query);
 mysqli_close($con);
 

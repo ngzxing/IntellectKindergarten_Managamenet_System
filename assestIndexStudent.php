@@ -23,39 +23,59 @@ include "dbconnect.php";
 							<h4>Assest Subject</h4>
 						</div>
 
-                
 						<div class="widget-inner">
+                            <?php echo "<h3 class = 'mb-5'>$_POST[stdName]</h3>" ?>
                             <table class="table table-striped table-hover ">
                                 <thead>
                                     <tr>
-                                    <th>Student</th>
-                                    <th><?php echo "$_SESSION[ptName]" ?></th>
+                                    <th>Assestment Index</th>
+                                    <th>Comment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
+
+                                <form method = 'POST' action = 'assestIndexProcess.php' class = 'form-group'>
                                 <?php
                                 
-                                $query = "SELECT * FROM Student WHERE clsName = '$_SESSION[clsName]' ";
+                                $query = "SELECT * FROM indexPerformance JOIN performBased ON pIName = iperID WHERE ptName = '$_SESSION[ptName]' ";
                                 $result = mysqli_query($con, $query);
-                                
+
+                                $query2 = "SELECT * FROM performance WHERE stdMKN = '$_POST[stdMKN]' AND spPeriod = '$_SESSION[period]' AND spYear = '$_SESSION[year]'";
+                                $result2 = mysqli_query($con, $query2);
+                                $performanceID = mysqli_fetch_array($result2)["performanceID"];
+
+                                $iPerIDList = array();
+
                                 while($row = mysqli_fetch_array($result)){
+                                    $query3 = "SELECT * FROM performComment WHERE performanceID = '$performanceID' AND iPerID = '$row[pbID]' ";
+                                    $pcComment = mysqli_fetch_array(mysqli_query($con, $query3))['pcComment'];
 
                                     echo "
 
                                     <tr>
-                                    <td class = 'text-center'>$row[stdName]</td>
-                                    <td><form method = 'POST' action = 'assestIndexStudent.php' class = 'form-group'>
-                                        <input type = 'hidden' value = $row[stdMKN] name = 'stdMKN' class = 'form-control'>
-                                        <input type = 'hidden' value = $row[stdName] name = 'stdName' class = 'form-control'>
-                                        <input type = 'submit' class = 'btn green pull-right' value = 'Edit'>
-                                    </form></td>
+                                    <td class = 'text-center'>$row[iName]</td>
+                                    <td>
+                                        <input type = 'text' value = '$pcComment'  name = '$row[pbID]' class = 'form-control'>
+                                    </td>
                                     </tr>
                                     
                                     ";
+
+                                    array_push($iPerIDList, $row['pbID']);
                                 }
+
+                                $iPerIDList = htmlentities(serialize($iPerIDList));
+
+                                echo "
+
+                                    <input type = 'hidden' value = '$performanceID' name = 'performanceID'>
+                                    <input type = 'hidden' value = '$iPerIDList' name = 'iPerID'>
+                                
+                                "
                                 ?>    
 
+                                <tr><td><input type = 'submit' class = 'btn green pull-right' value = 'Submit'><td></tr>
+                                </form>
                                 </tbody>
                             </table>
 

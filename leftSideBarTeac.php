@@ -1,6 +1,6 @@
 <?php
 
-include "sessionTeac.php";
+include "sessionParent.php";
 include "dbconnect.php";
 
 ?>
@@ -55,25 +55,8 @@ include "dbconnect.php";
 	<!-- STYLESHEETS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap5.min.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
-
-	
-	<link rel="shortcut icon" href="images/favicon.png" />
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/font-awesome.min.css">
-
-<link rel="stylesheet" href="css/linearicons-free.css">
-
-<link rel="stylesheet" href="css/simple-line-icons.css">
-
-<link rel="stylesheet" href="vendor/fancybox/css/fancybox.css">
-
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/kindergarten.css">
 	
 </head>
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
@@ -285,9 +268,30 @@ include "dbconnect.php";
 		                </a>
 		            </li>
 					<li>
+						<a href="regApproval.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
+		                	<span class="ttr-label">Registration Approvement</span>
+		                </a>
+		            </li>
+					<li>
 						<a href="#" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-email"></i></span>
-		                	<span class="ttr-label">Mailbox</span>
+		                	<span class="ttr-label">Post</span>
+		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+		                </a>
+		                <ul>
+		                	<li>
+		                		<a href="announcementEdit.php" class="ttr-material-button"><span class="ttr-label">Announcement</span></a>
+		                	</li>
+		                	<li>
+		                		<a href="activityPostTeac.php" class="ttr-material-button"><span class="ttr-label">Activity</span></a>
+		                	</li>
+		                </ul>
+		            </li>
+					<li>
+						<a href="#" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-email"></i></span>
+		                	<span class="ttr-label">Finance</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
 		                <ul>
@@ -301,33 +305,6 @@ include "dbconnect.php";
 		                		<a href="mailbox-read.php" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
 		                	</li>
 		                </ul>
-		            </li>
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-calendar"></i></span>
-		                	<span class="ttr-label">Calendar</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="basic-calendar.php" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="list-view-calendar.php" class="ttr-material-button"><span class="ttr-label">List View</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-					<li>
-						<a href="regApproval.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
-		                	<span class="ttr-label">Registration Approvement</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="review.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-comments"></i></span>
-		                	<span class="ttr-label">Review</span>
-		                </a>
 		            </li>
 					<li>
 						<a href="add-listing.php" class="ttr-material-button">

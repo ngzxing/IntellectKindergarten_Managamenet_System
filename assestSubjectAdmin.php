@@ -1,7 +1,7 @@
 <?php
 
 include "sessionAssest.php";
-include "leftSideBarTeac.php";
+include "leftSideBarAdmin.php";
 include "dbconnect.php";
 
 ?>

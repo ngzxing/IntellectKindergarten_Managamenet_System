@@ -1,7 +1,7 @@
 <?php
 
 include "sessionAssest.php";
-include "leftSideBarTeac.php";
+include "leftSideBarAdmin.php";
 include "dbconnect.php";
 
 ?>
@@ -29,7 +29,7 @@ include "dbconnect.php";
                                 <thead>
                                     <tr>
                                     <th>Student</th>
-                                    <th><?php echo "$_SESSION[ptName]" ?></th>
+                                    <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,7 +45,7 @@ include "dbconnect.php";
 
                                     <tr>
                                     <td class = 'text-center'>$row[stdName]</td>
-                                    <td><form method = 'POST' action = 'assestIndexStudent.php' class = 'form-group'>
+                                    <td rowspan='2'><form method = 'POST' action = 'assestIndexStudent.php' class = 'form-group'>
                                         <input type = 'hidden' value = $row[stdMKN] name = 'stdMKN' class = 'form-control'>
                                         <input type = 'hidden' value = $row[stdName] name = 'stdName' class = 'form-control'>
                                         <input type = 'submit' class = 'btn green pull-right' value = 'Edit'>

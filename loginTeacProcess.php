@@ -7,7 +7,7 @@ include "dbconnect.php";
 $ic = $_POST["ic"];
 $password = $_POST["password"];
 
-$query = "SELECT * FROM Teacher WHERE tIC = '$ic' AND tPosition!='admin'; ";
+$query = "SELECT * FROM Teacher WHERE tIC = '$ic' AND tPosition=0; ";
 $result = mysqli_query($con, $query);
 $count = mysqli_num_rows($result);
 

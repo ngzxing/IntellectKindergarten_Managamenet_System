@@ -32,7 +32,7 @@ if($count != 0){
     ';
 }
 
-$query = "INSERT INTO Parent VALUES('$ic', '$name', '$password', '$address', '$city', '$postcode', '$state', '$occupation', '$email', 0)";
+$query = "INSERT INTO Parent VALUES('$ic', '$name', '$password', '$address', '$city', '$postcode', '$state', '$occupation', '$email')";
 mysqli_query($con, $query);
 mysqli_close($con);
 

@@ -1,6 +1,6 @@
 <?php
 
-include "sessionTeac.php";
+include "sessionAdmin.php";
 include "dbconnect.php";
 
 ?>
@@ -55,7 +55,7 @@ include "dbconnect.php";
 	<!-- STYLESHEETS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap5.min.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
 
 	
@@ -273,21 +273,27 @@ include "dbconnect.php";
 			<nav class="ttr-sidebar-navi">
 				<ul>
 					<li>
-						<a href="dashboardTeac.php" class="ttr-material-button">
+						<a href="dashboardAdmin.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-home"></i></span>
-		                	<span class="ttr-label">Dashborad</span>
+		                	<span class="ttr-label">Dashboard</span>
 		                </a>
 		            </li>
 					<li>
-						<a href="appointment.php" class="ttr-material-button">
+						<a href="appointmentAdmin.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-book"></i></span>
 		                	<span class="ttr-label">Appoinment</span>
 		                </a>
 		            </li>
 					<li>
+						<a href="regApprovalAdmin.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
+		                	<span class="ttr-label">Registration Approvement</span>
+		                </a>
+		            </li>
+					<li>
 						<a href="#" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-email"></i></span>
-		                	<span class="ttr-label">Mailbox</span>
+		                	<span class="ttr-label">Finance</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
 		                <ul>
@@ -303,30 +309,9 @@ include "dbconnect.php";
 		                </ul>
 		            </li>
 					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-calendar"></i></span>
-		                	<span class="ttr-label">Calendar</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="basic-calendar.php" class="ttr-material-button"><span class="ttr-label">Basic Calendar</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="list-view-calendar.php" class="ttr-material-button"><span class="ttr-label">List View</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-					<li>
-						<a href="regApproval.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
-		                	<span class="ttr-label">Registration Approvement</span>
-		                </a>
-		            </li>
-					<li>
-						<a href="review.php" class="ttr-material-button">
+						<a href="adminAssestConf.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-comments"></i></span>
-		                	<span class="ttr-label">Review</span>
+		                	<span class="ttr-label">Assestment Configuration</span>
 		                </a>
 		            </li>
 					<li>

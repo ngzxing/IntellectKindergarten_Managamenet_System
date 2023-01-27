@@ -22,34 +22,71 @@ include "dbconnect.php"
 						</div>
 						<div class="widget-inner">
 
-                            <div class="col-xs-12 col-sm-12 register-form form clearfix pt-5">
-                                
-                                <form name="registerForm" id="parent-settings" class="student-settings" method="post" action = "<?php echo "assestSelectProcess.php?clsName=$_GET[clsName]" ?>" >
+						<script>
 
-                                    <label> Performance Type
-                                    <select name = 'ptName' id='select'>  
-                                       
-                            <?php           
-                                       $query = "SELECT ptName FROM prgPerform JOIN class ON prgPerform.prgName = class.prgName WHERE class.clsName = '$_GET[clsName]' ";
-                                       $result = mysqli_query($con, $query);
-   
-                                        while( $row = mysqli_fetch_array($result) ){
+                            function changeFunc(){
 
-   
-                                               echo "<option value = '$row[ptName]'> $row[ptName] </option>";
-                                       }
-                               
-                                       
-                            ?>
-                                    </select></label>
-                                    <label>Period <input name="period" value="" type="text" required></label>
-                                    <label>Year <input name="year" value="" type="text" required></label>
+                                document.getElementById('filter').submit();
+                            }
 
-                                    <input name="submit" class="mt-4 btn btn-default pull-right" value="Create" type="submit">
-                                </form>
+							
+                        </script>
 
-                            </div> 
-                           
+					<div class="col-xs-12 col-sm-12 register-form form clearfix pt-5">
+
+
+						<?php
+                  
+                    
+                    echo "
+
+                    <form method = 'POST' action = 'assestSelectProcess.php' id = 'filter'>
+
+                    <label>Assestment Type: <select class = 'form-control student-settings' name = 'ptName' class='form-control' id='select' onchange = 'changeFunc();'>";
+
+					$query = "SELECT ptName FROM prgPerform JOIN class ON prgPerform.prgName = class.prgName WHERE class.clsName = '$_GET[clsName]' ";
+					$result = mysqli_query($con, $query);
+
+					 while( $row = mysqli_fetch_array($result) ){
+
+							echo "<option value = '$row[ptName]'> $row[ptName] </option>";
+					}
+			
+                    
+                    echo " </select></label>" ;
+
+                    $queryGetPeriod = "SELECT DISTINCT spPeriod FROM Performance";
+                    $resultGetPeriod = mysqli_query($con, $queryGetPeriod);
+                    
+                    echo"<label>Period<select name = 'period' class='form-control' id='select' onchange = 'changeFunc();'>";
+
+                    while($rowGetPeriod = mysqli_fetch_array($resultGetPeriod)){
+
+                        echo "<option value = '$rowGetPeriod[spPeriod]' >$rowGetPeriod[spPeriod]</option>";
+                    }
+                    
+                    echo " </select></label>" ;
+
+                   
+                    $queryGetYear = "SELECT DISTINCT spYear FROM Performance";
+                    $resultGetYear = mysqli_query($con, $queryGetYear);
+
+                    echo"<label>Year<select name = 'year' class='form-control' id='select' onchange = 'changeFunc();'>";
+
+                    while($rowGetYear = mysqli_fetch_array($resultGetYear)){
+
+                        echo "<option value = '$rowGetYear[spYear]' >$rowGetYear[spYear]</option>";
+                    }
+
+                    echo " </select></label>
+					
+					<input name = 'clsName' value = '$_GET[clsName]' type = 'hidden'>
+					<label><button type='submit' class='mt-4 btn-secondry right'>Submit</button></label>" ;
+					
+					mysqli_close($con);
+					?>
+					
+                        
 						</div>
 					</div>
 				</div>

@@ -1,61 +1,68 @@
 <?php
 
-include "sessionAssest.php";
-include "leftSideBarTeac.php";
-include "dbconnect.php";
-
+include "leftSideBarAdmin.php";
+include "dbconnect.php"
 ?>
 
 	<!--Main container start -->
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Assest Subject</h4>
+				<h4 class="breadcrumb-title">Appointment</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-					<li>Assest Subject</li>
+					<li>Appointment</li>
 				</ul>
 			</div>	
 			<div class="row">
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
 						<div class="wc-title">
-							<h4>Assest Subject</h4>
+							<h4>Appointment</h4>
 						</div>
-
-                
 						<div class="widget-inner">
                             <table class="table table-striped table-hover ">
                                 <thead>
                                     <tr>
+                                    <th>#</th>
+                                    <th>Parent</th>
                                     <th>Student</th>
-                                    <th><?php echo "$_SESSION[ptName]" ?></th>
+                                    <th>Date Appoinment</th>
+                                    <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                        
-                                <?php
+                            
+                            <?php
                                 
-                                $query = "SELECT * FROM Student WHERE clsName = '$_SESSION[clsName]' ";
+                                $query = "SELECT stdMKN, stdName, pName, Student.pIC FROM Student JOIN Parent ON Student.pIC = Parent.pIC WHERE Student.stdRegStatus = 0";
                                 $result = mysqli_query($con, $query);
-                                
-                                while($row = mysqli_fetch_array($result)){
-
+                                $count = 1;
+                                while( $row = mysqli_fetch_array($result)){
+                                    
                                     echo "
 
                                     <tr>
-                                    <td class = 'text-center'>$row[stdName]</td>
-                                    <td><form method = 'POST' action = 'assestIndexStudent.php' class = 'form-group'>
-                                        <input type = 'hidden' value = $row[stdMKN] name = 'stdMKN' class = 'form-control'>
-                                        <input type = 'hidden' value = $row[stdName] name = 'stdName' class = 'form-control'>
-                                        <input type = 'submit' class = 'btn green pull-right' value = 'Edit'>
-                                    </form></td>
+                                    <td>$count</td>
+                                    <td><a href = '#'>$row[pName]</a></td>
+                                    <td><a href = '#'>$row[stdName]</a></td>
+                                    <form method = 'post' action = 'appointmentProcess.php'>
+                                        <input type = 'hidden' name = 'pIC' value = $row[pIC]>
+                                        <input type = 'hidden' name = 'stdMKN' value = $row[stdMKN]>
+                                        <td><div class = 'form-group'><input type = 'datetime-local' name = 'datetime' class = 'form-control'></div></td>
+                                        <td><div class = 'form-group'><input type = 'submit' class = 'form-control'></div></td>
+                                    </form>
                                     </tr>
-                                    
+                                
                                     ";
-                                }
-                                ?>    
 
+                                    $count+=1;
+    
+                                }
+                                
+                                mysqli_close($con);
+                            ?>
+                                
                                 </tbody>
                             </table>
 

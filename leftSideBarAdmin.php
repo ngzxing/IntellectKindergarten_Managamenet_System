@@ -1,6 +1,5 @@
 <?php
 
-include "sessionAdmin.php";
 include "dbconnect.php";
 
 ?>
@@ -58,22 +57,7 @@ include "dbconnect.php";
 	<link rel="stylesheet" type="text/css" href="css/bootstrap5.min.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
 
-	
-	<link rel="shortcut icon" href="images/favicon.png" />
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/font-awesome.min.css">
-
-<link rel="stylesheet" href="css/linearicons-free.css">
-
-<link rel="stylesheet" href="css/simple-line-icons.css">
-
-<link rel="stylesheet" href="vendor/fancybox/css/fancybox.css">
-
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/kindergarten.css">
 	
 </head>
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
@@ -279,13 +263,13 @@ include "dbconnect.php";
 		                </a>
 		            </li>
 					<li>
-						<a href="appointmentAdmin.php" class="ttr-material-button">
+						<a href="appointment.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-book"></i></span>
 		                	<span class="ttr-label">Appoinment</span>
 		                </a>
 		            </li>
 					<li>
-						<a href="regApprovalAdmin.php" class="ttr-material-button">
+						<a href="regApproval.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-bookmark-alt"></i></span>
 		                	<span class="ttr-label">Registration Approvement</span>
 		                </a>

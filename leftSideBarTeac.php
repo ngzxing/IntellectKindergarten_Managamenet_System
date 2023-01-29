@@ -1,6 +1,6 @@
 <?php
 
-include "sessionParent.php";
+
 include "dbconnect.php";
 
 ?>
@@ -57,6 +57,10 @@ include "dbconnect.php";
 	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap5.min.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	
 </head>
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">

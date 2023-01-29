@@ -1,5 +1,5 @@
 <?php
 
-include "myStdAdmin.php";
+include "myStd.php";
 ?>
 

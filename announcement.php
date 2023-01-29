@@ -1,6 +1,6 @@
 <?php
 
-include "sessionTeac.php";
+include "sessionStaff.php";
 
 ?>
 <!DOCTYPE html>

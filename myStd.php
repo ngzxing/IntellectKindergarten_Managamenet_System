@@ -1,7 +1,6 @@
 <?php
 
-include "leftSideBarTeac.php";
-
+include "sessionStaff.php";
 include "dbconnect.php"
 ?>
 

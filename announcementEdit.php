@@ -1,6 +1,7 @@
 <?php
 
-include "leftSideBarTeac.php";
+include "sessionStaff.php";
+
 ?>
 
         <script src="js/tinymce.min.js" referrerpolicy="origin"></script>
@@ -44,8 +45,31 @@ include "leftSideBarTeac.php";
                         
 
                             <h1>Title</h1>
+
+                            <?php
                             
-                            <input id="title" name = "title" type = text class = "form-control">
+                            if(!isset($_GET["annID"])){
+
+                            echo "
+                            
+                            <input id='title' name = 'title' type = text class = 'form-control'>
+                            ";
+                            }
+                            else{
+
+                            $queryAnn = "SELECT * FROM Announcement WHERE annID = '$_GET[annID]'";
+                            $resultAnn = mysqli_fetch_array(mysqli_query($con, $queryAnn));
+
+                            echo "
+                            
+                            <input id='title' name = 'title' type = text class = 'form-control' value = '$resultAnn[annTitle]'>
+                            ";
+
+                            }
+                            
+                            ?>
+                            
+                            
 
 						</div>
 
@@ -53,9 +77,28 @@ include "leftSideBarTeac.php";
                         
 
                             <h1>Body</h1>
+
+                            <?php
                             
-                            <textarea id="tiny" name = "tiny">Hello, World!</textarea>
-                            <button type="submit" class="mt-5 mx-3 btn btn-success">Submit</button>
+                            if(!isset($_GET["annID"])){
+
+                            echo "
+
+                            <textarea id='tiny' name = 'tiny'>Hello, World!</textarea>
+                            <button type='submit' class='mt-5 mx-3 btn btn-success'>Submit</button>
+                            ";
+                            }
+                            else{
+                            
+                            echo "
+
+                            <textarea id='tiny' name = 'tiny'>$resultAnn[annText]</textarea>
+                            <button type='submit' class='mt-5 mx-3 btn blue' value = '$_GET[annID]' name = 'editing' >Edit</button>
+                            ";
+
+                            }
+
+                            ?>
         
 						</div>
                         </form>
@@ -63,23 +106,43 @@ include "leftSideBarTeac.php";
 					</div>
 				</div>
 
+                <script>
+
+                    function unchecking(){
+
+                        
+                        let list = document.getElementsByClassName("checking")
+                        for(let i = 0; i<list.length; i++){
+
+                            list[i].checked = false;
+                        }
+                    }
+                </script>
+
                 <div class="col-lg-3 m-b30">
 					<div class="widget-box">
 						<div class="wc-title">
 							<h4>Posting</h4>
 						</div>
 
-						<div class="widget-inner">                    
-                        
-                            <form id = "posting" method="post" action = "announcementPostingProcess.php">
-                            <table class="table table-striped table-hover ">
+						<div id ="post-delete" class="widget-inner">
+
+                            <label>uncheck&nbsp<input class ="checking" type = "radio" onchange = "unchecking()"></input></label>
+
+                            <?php
+
+                            echo "
+                            
+                            <div id = 'posting'> 
+                            <form method='post' action = 'announcementPostingProcess.php'>
+                            <table class='table table-striped table-hover '>
                             <tr>
 
                                 <th>Title</th>
-                                <th>Post</th>
+                                <th></th>
                             </tr>
 
-                            <?php
+                            ";
 
                             $query = "SELECT * FROM Announcement ORDER BY annID DESC";
                             $result = mysqli_query($con, $query);
@@ -88,30 +151,37 @@ include "leftSideBarTeac.php";
 
                             echo "
                             
-                            <tr><td><a btn btn-link href = 'announcement.php?annID=$row[annID]'>$row[annTitle]</a></td>
+                            <tr><td><a btn btn-link href = 'announcementEdit.php?annID=$row[annID]'>$row[annTitle]</a></td>
 
                             ";
                             
                             if($row["annStatus"] == 1){
 
                             echo "
-                                <td><input type = 'checkbox' value = '$row[annID]' name = 'annStatus[] ' checked ></td></tr>
+                                <td><input class = 'checking' type = 'checkbox' value = '$row[annID]' name = 'annStatus[] ' checked ></td></tr>
                             ";
 
                             }else{
                             
                             echo "
-                                <td><input type = 'checkbox' value = '$row[annID]' name = 'annStatus[] ' ></td></tr>
+                                <td><input class = 'checking' type = 'checkbox' value = '$row[annID]' name = 'annStatus[] ' ></td></tr>
                             ";
                             }
 
                             }
 
-                            ?>
-                            </table>
-                            <button type="submit" class="mt-5 mx-3 btn btn-success">Submit</button>
+                            echo "</table>
+                            
+                            <div class = 'row'>
+                                <div class = 'col-5'><button name = 'post' type = 'submit' class = 'mt-5 mx-3 btn ' >Post</button></div>
+                                <div class = 'col-7'><button name = 'delete' type = 'submit' class = 'mt-5 btn red' >Delete</button></div>
+                                
+                            </div>
                             </form>
+                            
+                            </div>"
 
+                            ?>
                    
 
 						</div>

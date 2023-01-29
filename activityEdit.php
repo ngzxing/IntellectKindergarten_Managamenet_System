@@ -1,6 +1,6 @@
 <?php
 
-include "leftSideBarTeac.php";
+include "sessionStaff.php";
 include "dbconnect.php";
 ?>
 
@@ -41,16 +41,24 @@ include "dbconnect.php";
 					<div class="widget-box">
 						<div class="wc-title">
                             
-							<h4>Announcement Editor</h4>
+							<h4>Activity Editor</h4>
 
-                            <form id = "form-select" method = "post" action = "activityEditProcess.php" >
-                            <div class = "row mt-5">
-                            <div class = "col-lg-2"><label><select name = "clsName" id = "selectClass">
+                            <form id = 'form-select' method = 'post' action = 'activityEditProcess.php' >
+                            
 
                             <?php
                             
+
                             $query = "SELECT DISTINCT clsName FROM SubjectsTeac WHERE tIC = $_SESSION[tIC]";
                             $result = mysqli_query($con, $query);
+
+                            echo "
+                            
+                            
+                            <div class = 'row mt-5'>
+                            <div class = 'col-lg-2'><label><select name = 'clsName' id = 'selectClass'>
+                            
+                            ";
 
                             while( $row = mysqli_fetch_array($result)){
 
@@ -62,10 +70,14 @@ include "dbconnect.php";
                                 
                             }
                             
-                           
-                            ?>
+                            echo"
+                            
                             </select></label></div>
                             </div>
+                            ";
+                            
+                            ?>
+                            
                             
 
 
@@ -76,8 +88,28 @@ include "dbconnect.php";
 
                             <h1>Title</h1>
                             
-                            <input id="title" name = "title" type = text class = "form-control">
+                        <?php
+                            
+                            if(!isset($_POST["editing"])){
 
+                            echo"
+
+                            <input id='title' name = 'title' type = text class = 'form-control'>
+                            ";
+                            }
+                            else{
+                            
+                            $query = " SELECT * FROM Activity WHERE actID = '$_POST[editing]' ";
+                            $result = mysqli_fetch_array(mysqli_query($con, $query));
+                            
+                            echo"
+
+                                <input id='title' name = 'title' type = text class = 'form-control' value = '$result[actTitle]'>
+                            ";
+                            
+                            }
+
+                        ?>
 						</div>
 
 						<div class="widget-inner">                    
@@ -85,9 +117,45 @@ include "dbconnect.php";
 
                             <h1>Body</h1>
                             
-                            <textarea id="tiny" name = "tiny">Hello, World!</textarea>
-                            <button type="submit" class="mt-5 mx-3 btn btn-success">Submit</button>
-        
+                        <?php
+                            if(!isset($_POST["editing"])){
+
+                            echo "
+
+                            <textarea id = 'tiny' name = 'tiny'>Hello, World!</textarea>
+                            ";
+                            }
+                            else{
+
+                            echo "
+                            
+                            <textarea id = 'tiny' name = 'tiny'>$result[actDesc]</textarea>
+                            ";
+                            }
+                        
+                        ?>
+                        
+                        <?php
+
+                            if(!isset($_POST["editing"])){
+                            
+                            echo "
+
+                            <button type='submit' class='mt-5 mx-3 btn btn-success'>Submit</button>
+                            ";
+                            }
+                            else{
+                            
+                            echo "
+                            
+                            <button class = 'btn blue mt-5 mx-3' name = 'editing' value = '$result[actID]' type = 'submit'>Edit</button>
+                            <button class = 'btn red mt-5 mx-3' name = 'deleting' value = '$result[actID]' type = 'submit'>Delete</button>
+                            ";
+
+                            }
+
+                        ?>
+
 						</div>
                         </form>
 

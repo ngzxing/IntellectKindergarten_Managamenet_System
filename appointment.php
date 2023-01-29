@@ -1,8 +1,42 @@
 <?php
 
-include "leftSideBarTeac.php";
+include "sessionStaff.php";
 include "dbconnect.php"
 ?>
+    <script>    
+
+        function confirm(){
+
+            $("#loozhiyuan").modal("show");
+            
+        }
+
+        function submitForm(){
+
+            document.getElementById("form").submit();
+        }
+
+    </script>
+
+<div class="modal" id = "loozhiyuan">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "submitForm()">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 	<!--Main container start -->
 	<main class="ttr-wrapper">
@@ -46,11 +80,11 @@ include "dbconnect.php"
                                     <td>$count</td>
                                     <td><a href = '#'>$row[pName]</a></td>
                                     <td><a href = '#'>$row[stdName]</a></td>
-                                    <form method = 'post' action = 'appointmentProcess.php'>
+                                    <form method = 'post' action = 'appointmentProcess.php' id = 'form'>
                                         <input type = 'hidden' name = 'pIC' value = $row[pIC]>
                                         <input type = 'hidden' name = 'stdMKN' value = $row[stdMKN]>
                                         <td><div class = 'form-group'><input type = 'datetime-local' name = 'datetime' class = 'form-control'></div></td>
-                                        <td><div class = 'form-group'><input type = 'submit' class = 'form-control'></div></td>
+                                        <td><div class = 'form-group'><button type = 'button' class = 'btn green pull-right' onclick = 'confirm();'>Submit</button></div></td>
                                     </form>
                                     </tr>
                                 

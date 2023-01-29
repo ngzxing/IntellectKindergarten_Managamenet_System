@@ -7,7 +7,7 @@ if(!session_id()){
 
 if( !isset($_SESSION["admin_session_id"])) {
 
-    header("location:loginAdmin.php");
+    header("location:login.php");
 }
 
 ?>

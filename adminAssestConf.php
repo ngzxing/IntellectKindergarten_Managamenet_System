@@ -1,6 +1,7 @@
 <?php
 
-include "leftSideBarAdmin.php";
+include "sessionAdmin.php";
+include "sessionStaff.php";
 include "dbconnect.php"
 ?>
 
@@ -27,10 +28,10 @@ include "dbconnect.php"
                                 <form name="registerForm" id="parent-settings" class="student-settings" method="post" action = "adminAssestProcess.php" >
 
                                     <label>Date <input name="date" value="" type="date" required class = "form-control"></label>
-                                    <label>Period <input name="period" value="" type="text" required></label>
-                                    <label>Year <input name="year" value="" type="text" required></label>
+                                    <label>Period <input name="period" value="" type="text" required class = "form-control"></label>
+                                    <label>Year <input name="year" value="" type="text" required class = "form-control"></label>
 
-                                    <input name="submit" class="mt-4 btn btn-default pull-right" value="Create" type="submit">
+                                    <input name="submit" class="pt-2 btn btn-default " value="Create" type="submit">
                                 </form>
 
                             </div> 

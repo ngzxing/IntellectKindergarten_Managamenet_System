@@ -7,7 +7,7 @@ if(!session_id()){
 
 if( !isset($_SESSION["parent_session_id"])) {
 
-    header("location:loginParent.php");
+    header("location:login.php");
 }
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-include "leftSideBarTeac.php";
+include "sessionStaff.php";
 include "dbconnect.php";
 ?>
 
@@ -98,8 +98,17 @@ include "dbconnect.php";
                 <div class='col-lg-12 m-b30'>
                 <div class='widget-box'>
                     <div class='wc-title'>
+                    <div class = 'row'>
+                        <div class = 'col-lg-8'>
                         <h3>$rowPost[actTitle]</h3>
                         <time>$rowPost[actDate]</time>
+                        </div>
+                        <div class = 'col-lg-4 mt-2'>
+                        <form method = 'post' action = 'activityEdit.php'>
+                        <button class = 'btn red pull-right ' name = 'editing' value = '$rowPost[actID]' type = 'submit'>Edit</button>
+                        </form>
+                        </div>
+                    </div>
                     </div>
                     <div class='widget-inner'>
                         $rowPost[actDesc]

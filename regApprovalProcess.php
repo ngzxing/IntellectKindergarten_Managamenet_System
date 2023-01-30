@@ -1,6 +1,6 @@
 <?php
 
-include "sessionTeac.php";
+include "sessionAdmin.php";
 include "dbconnect.php";
 
 $operation = $_POST["operation"];

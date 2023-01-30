@@ -1,7 +1,16 @@
 <?php
 
+
+if(!session_id()){
+
+    session_start();
+}
+
+if( !isset($_SESSION["teac_session_id"]) && !isset($_SESSION["admin_session_id"]) )  {
+
+    header("location:login.php");
+}
 include "dbconnect.php";
-include "sessionTeac.php";
 
 $stdMKN = $_POST["stdMKN"];
 $pIC = $_POST["pIC"];

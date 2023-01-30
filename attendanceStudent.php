@@ -1,8 +1,7 @@
 <?php
 
 include "leftSideBarParent.php";
-// include "sessionParent.php";
-// include "dbconnect.php";
+include "dbconnect.php";
 $pIC = $_SESSION["pIC"];
 
 $datemin = date('Y-m-d', strtotime(date("Y-m-d"). ' + 1 days'));

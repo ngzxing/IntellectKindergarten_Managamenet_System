@@ -1,5 +1,6 @@
 <?php
 
+include "sessionAdmin.php";
 include "dbconnect.php";
 
 $period = $_POST["period"];

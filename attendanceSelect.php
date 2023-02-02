@@ -47,7 +47,7 @@ $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
                                     
                                     <label>Date <br><input class = "col-sm-12" name="attDate" max = <?php echo "$datemax"; ?> value="" type="date" required></label>
 
-                                    <input name="submit" class="mt-4 btn btn-default pull-right" value="Submit" type="submit">
+                                    <input name="submit" class="mt-4 btn green pull-right" value="Submit" type="submit">
                                 </form>
 
                             </div> 

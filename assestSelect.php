@@ -4,6 +4,43 @@ include "sessionStaff.php";
 include "dbconnect.php"
 ?>
 
+<script>    
+
+        function submitAss(){
+
+            $("#modal-assSelect-submit").modal("show");
+            
+        }
+
+        function submitForm(){
+
+            document.getElementById("filter").submit();
+        }
+
+</script>
+
+
+
+<div class="modal" id = "modal-assSelect-submit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to submit this assestment selection?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "submitForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<!--Main container start -->
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
@@ -81,7 +118,9 @@ include "dbconnect.php"
                     echo " </select></label>
 					
 					<input name = 'clsName' value = '$_GET[clsName]' type = 'hidden'>
-					<label><button type='submit' class='mt-4 btn-secondry right'>Submit</button></label>" ;
+					<label><button type='button' class='mt-4 btn-secondry right' onclick = 'submitAss()'>Submit</button></label>
+					
+					</form>";
 					
 					mysqli_close($con);
 					?>

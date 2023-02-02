@@ -3,8 +3,45 @@
 include "sessionAssest.php";
 include "sessionStaff.php";
 include "dbconnect.php";
-
+error_reporting(E_ERROR | E_PARSE);
 ?>
+
+<script>    
+
+        function submitAssSub(id){
+
+            $("#modal-assSelect-submit".concat(id)).modal("show");
+            
+        }
+
+        function submitForm(id){
+            
+            document.getElementsByClassName("submitAssSub")[id].submit();
+        }
+
+</script>
+
+
+
+<!-- <div class="modal" id = "modal-assSelect-submit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to submit this assestment subject?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "submitForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 	<!--Main container start -->
 	<main class="ttr-wrapper">
@@ -67,6 +104,7 @@ include "dbconnect.php";
                                 </div>
                             </div>
                         </form>
+                        
 
 						<div class="widget-inner">
                             <table class="table table-striped table-hover ">
@@ -110,13 +148,14 @@ include "dbconnect.php";
                                 $query = "SELECT * FROM Student  WHERE clsName = '$_SESSION[clsName]' ";
                                 $result = mysqli_query($con, $query);
                                 
+                                $countStd = 0;
                                 while( $row = mysqli_fetch_array($result)){
                                     
                                     echo "
                                     
                                     <tr>
                                     <td><a href = '#'>$row[stdName]</td>
-                                    <form method = 'post' action = 'assestSubjectProcess.php'>
+                                    <form method = 'post' action = 'assestSubjectProcess.php' class = 'submitAssSub'>
 
                                     ";
                                     
@@ -143,7 +182,8 @@ include "dbconnect.php";
                                     ";
                                 
                                     while( $row2 = mysqli_fetch_array($result2) ){
-                                    
+
+
                                     if($result5["ratingID"] != $row2["ratingID"]){
 
                                     echo
@@ -186,10 +226,36 @@ include "dbconnect.php";
                                     <td>
                                     <input type = 'hidden' name = 'stdMKN' value = '$row[stdMKN]' >
                                     <input type='hidden' name='performance' value='$queryPerId2' />
-                                    <input type = 'submit' class = 'btn red pull-right' value = 'Submit'></td>
+                                    <button type = 'button' class = 'btn red pull-right' onclick = 'submitAssSub($countStd)'>Submit</button></td>
                                     </form>
                                     </tr>
                                     ";
+
+                                    echo "
+                                    
+                                    <div class='modal' id = 'modal-assSelect-submit$countStd'>
+                                    <div class='modal-dialog' role='document'>
+                                        <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <h5 class='modal-title'>Confirmation</h5>
+                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'></span>
+                                            </button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <p>Are you confirm to submit this assestment subject?</p>
+                                        </div>
+                                        <div class='modal-footer'>
+                                            <button type='button' class='btn btn-primary' onclick = 'submitForm($countStd)'>Confirm</button>
+                                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                    ";
+
+                                    $countStd+=1;
     
                                 }
                                 

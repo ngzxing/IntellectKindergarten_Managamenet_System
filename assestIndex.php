@@ -6,6 +6,25 @@ include "dbconnect.php";
 
 ?>
 
+<script>    
+
+        function editAss(id){
+
+            
+            $("#modal-assIndex-edit".concat(id)).modal("show");
+            
+
+
+        }
+
+        function editForm(id){
+            
+            document.getElementsByClassName("edit-assetSub")[id].submit();
+        }
+
+</script>
+
+
 	<!--Main container start -->
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
@@ -25,6 +44,7 @@ include "dbconnect.php";
 
                 
 						<div class="widget-inner">
+                    
                             <table class="table table-striped table-hover ">
                                 <thead>
                                     <tr>
@@ -38,21 +58,52 @@ include "dbconnect.php";
                                 
                                 $query = "SELECT * FROM Student WHERE clsName = '$_SESSION[clsName]' ";
                                 $result = mysqli_query($con, $query);
+                                $count = 0;
+
                                 
                                 while($row = mysqli_fetch_array($result)){
 
-                                    echo "
+                                
 
+                                    echo "
+                                    
                                     <tr>
                                     <td class = 'text-center'>$row[stdName]</td>
-                                    <td><form method = 'POST' action = 'assestIndexStudent.php' class = 'form-group'>
-                                        <input type = 'hidden' value = $row[stdMKN] name = 'stdMKN' class = 'form-control'>
-                                        <input type = 'hidden' value = $row[stdName] name = 'stdName' class = 'form-control'>
+                                    <td><form method = 'POST' action = 'assestIndexStudent.php' class = 'form-group edit-assetSub'>
+                                        <input type = 'hidden' value = '$row[stdMKN]' name = 'stdMKN' class = 'form-control'>
+                                        <input type = 'hidden' value = '$row[stdName]' name = 'stdName' class = 'form-control'>
                                         <input type = 'submit' class = 'btn green pull-right' value = 'Edit'>
                                     </form></td>
                                     </tr>
                                     
                                     ";
+
+                                    echo "
+                                    
+                                    <div class='modal' id = 'modal-assIndex-edit$count'>
+                                    <div class='modal-dialog' role='document'>
+                                        <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <h5 class='modal-title'>Confirmation</h5>
+                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'></span>
+                                            </button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <p>Are you confirm to edit this assest subject?</p>
+                                        </div>
+                                        <div class='modal-footer'>
+                                            <button type='button' class='btn btn-primary' onclick = 'editForm($count)'>Confirm</button>
+                                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                    
+                                    ";
+
+                                    $count+=1;
                                 }
                                 ?>    
 

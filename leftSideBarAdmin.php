@@ -57,6 +57,11 @@ include "dbconnect.php";
 	<link rel="stylesheet" type="text/css" href="css/bootstrap5.min.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
 
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 	
 </head>
@@ -183,10 +188,10 @@ include "dbconnect.php";
 						<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="" src="assets/images/testimonials/pic3.jpg" width="32" height="32"></span></a>
 						<div class="ttr-header-submenu">
 							<ul>
-								<li><a href="user-profile.php">My profile</a></li>
+								<li><a href="profileTeac.php">My profile</a></li>
 								<li><a href="list-view-calendar.php">Activity</a></li>
 								<li><a href="mailbox.php">Messages</a></li>
-								<li><a href="../login.php">Logout</a></li>
+								<li><a href="logoutProcess.php">Logout</a></li>
 							</ul>
 						</div>
 					</li>
@@ -265,7 +270,7 @@ include "dbconnect.php";
 					<li>
 						<a href="appointment.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-book"></i></span>
-		                	<span class="ttr-label">Appoinment</span>
+		                	<span class="ttr-label">Appointment</span>
 		                </a>
 		            </li>
 					<li>
@@ -282,26 +287,41 @@ include "dbconnect.php";
 		                </a>
 		                <ul>
 		                	<li>
-		                		<a href="mailbox.php" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
+		                		<a href="financialManage.php" class="ttr-material-button"><span class="ttr-label">Student Financial</span></a>
 		                	</li>
 		                	<li>
-		                		<a href="mailbox-compose.php" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
+		                		<a href="myTeac.php" class="ttr-material-button"><span class="ttr-label">Teacher Salary</span></a>
 		                	</li>
 							<li>
-		                		<a href="mailbox-read.php" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
+		                		<a href="feeManage.php" class="ttr-material-button"><span class="ttr-label">Fee Item</span></a>
 		                	</li>
 		                </ul>
 		            </li>
 					<li>
-						<a href="adminAssestConf.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-comments"></i></span>
-		                	<span class="ttr-label">Assestment Configuration</span>
+						<a href="#" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-email"></i></span>
+		                	<span class="ttr-label">Playschool Configuration</span>
+		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
+		                <ul>
+							<li>
+		                		<a href="classConf.php" class="ttr-material-button"><span class="ttr-label">Class Configuration</span></a>
+		                	</li>
+		                	<li>
+		                		<a href="adminAssestConf.php" class="ttr-material-button"><span class="ttr-label">Assessment Configuration</span></a>
+		                	</li>
+							<li>
+		                		<a href="adminPerformConf.php" class="ttr-material-button"><span class="ttr-label">Performance Configuration</span></a>
+		                	</li>
+							<li>
+		                		<a href="adminIndexConf.php" class="ttr-material-button"><span class="ttr-label">Index Configuration</span></a>
+		                	</li>
+		                </ul>
 		            </li>
 					<li>
 						<a href="add-listing.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
-		                	<span class="ttr-label">Student Assestment</span>
+		                	<span class="ttr-label">Student Assessment</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
 		                <ul>
@@ -325,18 +345,24 @@ include "dbconnect.php";
 		            </li>
 					<li>
 						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-user"></i></span>
-		                	<span class="ttr-label">My Profile</span>
+							<span class="ttr-icon"><i class="ti-comments"></i></span>
+		                	<span class="ttr-label">Student Status</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
 		                <ul>
-		                	<li>
-		                		<a href="user-profile.php" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
+							<li>
+		                		<a href="attendanceSelect.php" class="ttr-material-button"><span class="ttr-label">Student Attendance</span></a>
 		                	</li>
 		                	<li>
-		                		<a href="teacher-profile.php" class="ttr-material-button"><span class="ttr-label">Teacher Profile</span></a>
+		                		<a href="covidSelect.php" class="ttr-material-button"><span class="ttr-label">Student Covid Status</span></a>
 		                	</li>
 		                </ul>
+		            </li>
+					<li>
+						<a href="profileTeac.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-book"></i></span>
+		                	<span class="ttr-label">My Profile</span>
+		                </a>
 		            </li>
 		            <li class="ttr-seperate"></li>
 				</ul>

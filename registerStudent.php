@@ -4,6 +4,43 @@
   include "dbconnect.php";
 ?>
 
+<script>    
+
+        function addChild(){
+
+            $("#modal-regStd-add").modal("show");
+            
+        }
+
+        function addChildForm(){
+
+            document.getElementById("parent-settings").submit();
+        }
+
+</script>
+
+
+
+<div class="modal" id = "modal-regStd-add">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-labelledby="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to register this kid as student?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "addChildForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="breadcrumb-section">
   <div class="container">
     <div class="row">
@@ -70,6 +107,12 @@
                             while( $row = mysqli_fetch_array($result) ){
 
                                 echo "<option value = $row[prgName]> $row[prgName] </option>";
+
+                                echo "
+                                
+
+                                
+                                ";
                             }
                             
                             mysqli_close($con);
@@ -79,15 +122,15 @@
                 <label>Session
                     <select name = "stdSession" class="form-control" id="select">
                         <option value = "M"> Morning </option>
-                        <option value = "A"> Aternoon </option>
-                        <option value = "MA"> Morning and Aternoon</option>
+                        <option value = "A"> Afternoon </option>
+                        <option value = "MA"> Morning and Afternoon</option>
                     </select>
                 </label>
                 <label>Meal
                     <select name = "stdMeal" class = "form-control" id="select">
                         <option value = "M"> Morning </option>
-                        <option value = "A"> Aternoon </option>
-                        <option value = "MA"> Morning and Aternoon</option>
+                        <option value = "A"> Afternoon </option>
+                        <option value = "MA"> Morning and Afternoon</option>
                         <option value = "N"> Don't Need</option>
                     </select>
                 </label>
@@ -95,7 +138,7 @@
 
                 <?php echo "<input name = 'nextPage' value = $_POST[nextPage] type = 'hidden'>" ?>
 
-                <input name="submit" class="btn btn-default pull-right" value="Next" type="submit">
+                <button class="btn btn-default pull-right" type="button" onclick = "addChild()">Next</button>
               </form>
 
 
@@ -115,4 +158,21 @@
 ?>
 
 
-  
+<!-- External JavaScripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="assets/vendors/bootstrap-select/bootstrap-select.min.js"></script> -->
+<script src="assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="assets/vendors/counter/waypoints-min.js"></script>
+<script src="assets/vendors/counter/counterup.min.js"></script>
+<script src="assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="assets/vendors/masonry/masonry.js"></script>
+<script src="assets/vendors/masonry/filter.js"></script>
+<script src="assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src='assets/vendors/scroll/scrollbar.min.js'></script>
+<!-- <script src="assets/js/functions.js"></script> -->
+<script src="assets/vendors/chart/chart.min.js"></script>
+<script src="assets/js/admin.js"></script>
+<script src='assets/vendors/switcher/switcher.js'></script>

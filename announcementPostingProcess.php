@@ -1,20 +1,11 @@
 <?php
 
-if(!session_id()){
-
-    session_start();
-}
-
-if( !isset($_SESSION["teac_session_id"]) && !isset($_SESSION["admin_session_id"]) )  {
-
-    header("location:login.php");
-}
 include "dbconnect.php";
 
 $query = "UPDATE Announcement SET annStatus = 0 ";
 mysqli_query($con, $query);
 
-if( isset($_POST["post"]) ){
+if( $_POST["operation"] == "post" ){
 
 foreach( $_POST["annStatus"] as $annID){
 
@@ -23,7 +14,7 @@ foreach( $_POST["annStatus"] as $annID){
 }
 
 }
-else{
+elseif( $_POST["operation"] == "delete" ){
 
     foreach( $_POST["annStatus"] as $annID){
 

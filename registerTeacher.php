@@ -1,6 +1,5 @@
 <?php
 
-  include "sessionAdmin.php";
   include ("headerMain.php");
 ?>
 

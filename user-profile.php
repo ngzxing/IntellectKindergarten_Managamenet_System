@@ -3,6 +3,70 @@
 include "leftSideBarParent.php";
 ?>
 
+<script>    
+
+        function saveUserProf(){
+            
+            $("#modal-userProf-save").modal("show");
+        }
+
+		function cancelUserProf(){
+            
+            $("#modal-userProf-cancel").modal("show");
+        }
+
+        function saveForm(){
+            
+            document.getElementById("submit-asset").submit();
+        }
+
+		function cancelForm(){
+            
+            document.getElementById("submit-asset").submit();
+        }
+
+</script>
+
+<div class="modal" id = "modal-assIndexStd-submit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to save changes?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "saveForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id = "modal-assIndexStd-submit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to cancel the changes?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "cancelForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<!--Main container start -->
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
@@ -136,8 +200,8 @@ include "leftSideBarParent.php";
 											<div class="col-sm-2">
 											</div>
 											<div class="col-sm-7">
-												<button type="reset" class="btn">Save changes</button>
-												<button type="reset" class="btn-secondry">Cancel</button>
+												<button type="button" class="btn" onclick = "saveUserProf()">Save changes</button>
+												<button type="reset" class="btn-secondry" onclick = "cancelUserProf()">Cancel</button>
 											</div>
 										</div>
 									</div>

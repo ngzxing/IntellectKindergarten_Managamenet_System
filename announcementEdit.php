@@ -4,6 +4,56 @@ include "sessionStaff.php";
 
 ?>
 
+<script>    
+
+    function submittedAnn(){
+
+        $("#modal-annEdit-submit").modal("show");
+
+    }
+
+    function edittedAnn(){
+
+        $("#modal-annEdit-edit").modal("show");
+
+    }
+
+    function postedAnn(){
+
+        $("#modal-annEdit-post").modal("show");
+
+    }
+
+    function deletedAnn(){
+
+        $("#modal-annEdit-delete").modal("show");
+
+    }
+
+    function submittedForm(){
+
+        document.getElementById("editor").submit();
+    }
+
+    function edittedForm(){
+
+        document.getElementById("editor").submit();
+    }
+
+    function deletedForm(){
+
+        document.getElementById("operation").value = "delete";
+        document.getElementById("formposting").submit();
+    }
+
+    function postedForm(){
+        
+        document.getElementById("operation").value = "post";
+        document.getElementById("formposting").submit();
+    }
+
+</script>
+
         <script src="js/tinymce.min.js" referrerpolicy="origin"></script>
 
         <script>
@@ -20,14 +70,94 @@ include "sessionStaff.php";
                 }
             });
         </script>
-  
+
 
     <body>
+
+<div class="modal" id = "modal-annEdit-submit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you confirm to submit this announcement?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick = "submittedForm()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id = "modal-annEdit-edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you confirm to edit this announcement?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick = "edittedForm()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id = "modal-annEdit-post">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you confirm to post this announcement?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick = "postedForm()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id = "modal-annEdit-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you confirm to reject this announcement?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick = "deletedForm()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Student List</h4>
+				<h4 class="breadcrumb-title">Announcement Editor</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
 					<li>Announcement Editor</li>
@@ -83,17 +213,16 @@ include "sessionStaff.php";
                             if(!isset($_GET["annID"])){
 
                             echo "
-
                             <textarea id='tiny' name = 'tiny'>Hello, World!</textarea>
-                            <button type='submit' class='mt-5 mx-3 btn btn-success'>Submit</button>
+                            <button type = 'button' class='mt-5 mx-3 btn btn-success' onclick = 'submittedAnn()'>Submit</button>
                             ";
                             }
                             else{
                             
                             echo "
-
                             <textarea id='tiny' name = 'tiny'>$resultAnn[annText]</textarea>
-                            <button type='submit' class='mt-5 mx-3 btn blue' value = '$_GET[annID]' name = 'editing' >Edit</button>
+                            <input name = 'editing' value = '$_GET[annID]' type = 'hidden'> 
+                            <button type='button' class='mt-5 mx-3 btn blue' value = '$_GET[annID]' onclick = 'edittedAnn()'>Edit</button>
                             ";
 
                             }
@@ -133,15 +262,12 @@ include "sessionStaff.php";
 
                             echo "
                             
-                            <div id = 'posting'> 
-                            <form method='post' action = 'announcementPostingProcess.php'>
+                            <form method='post' action = 'announcementPostingProcess.php' id = 'formposting'>
                             <table class='table table-striped table-hover '>
                             <tr>
-
                                 <th>Title</th>
                                 <th></th>
                             </tr>
-
                             ";
 
                             $query = "SELECT * FROM Announcement ORDER BY annID DESC";
@@ -152,7 +278,6 @@ include "sessionStaff.php";
                             echo "
                             
                             <tr><td><a btn btn-link href = 'announcementEdit.php?annID=$row[annID]'>$row[annTitle]</a></td>
-
                             ";
                             
                             if($row["annStatus"] == 1){
@@ -173,13 +298,14 @@ include "sessionStaff.php";
                             echo "</table>
                             
                             <div class = 'row'>
-                                <div class = 'col-5'><button name = 'post' type = 'submit' class = 'mt-5 mx-3 btn ' >Post</button></div>
-                                <div class = 'col-7'><button name = 'delete' type = 'submit' class = 'mt-5 btn red' >Delete</button></div>
+                                <input id = 'operation' type = 'hidden' name = 'operation'>
+                                <div class = 'col-5'><button type = 'button' class = 'mt-5 btn green' onclick = 'postedAnn()'>Post</button></div>
+                                <div class = 'col-7'><button  type = 'button' class = 'mt-5 btn red' onclick = 'deletedAnn()'>Delete</button></div>
                                 
                             </div>
                             </form>
                             
-                            </div>"
+                            "
 
                             ?>
                    

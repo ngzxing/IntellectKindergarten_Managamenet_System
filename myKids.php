@@ -8,7 +8,7 @@ include "leftSideBarParent.php";
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Courses</h4>
+				<h4 class="breadcrumb-title">My Kids</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
 					<li>My Kids</li>
@@ -26,7 +26,7 @@ include "leftSideBarParent.php";
 								<?php echo "<input name = 'pIC' value = $_SESSION[pIC] type = 'hidden'>
 											<input name = 'nextPage' value = 'myKids.php' type = 'hidden'>
 								"; ?>							
-								<label><input name = "submit" type = "submit" class = "btn pull-right" value = "Add Your Child"></label>
+								<label><input name = "submit" type = "submit" class = "btn yellow pull-right" value = "Add Your Child"></label>
 							</form>
 							
 							
@@ -140,7 +140,7 @@ while($row = mysqli_fetch_array($result)){
 				</div>
 
 				<div class='col-md-12'>
-					<a href='#' class='btn green outline radius-xl '>Edit Profile</a>
+					<a href='profileStudent.php?id=".$row['stdMKN']."' class='btn green outline radius-xl '>Edit Profile</a>
 				</div>
 			</div>
 										

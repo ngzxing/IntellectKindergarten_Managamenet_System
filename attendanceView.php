@@ -3,8 +3,19 @@
 include "sessionStaff.php";
 // include "dbconnect.php";
 
-$clsName = $_POST['clsName'];
-$attDate = $_POST['attDate'];
+
+
+if(isset($_SESSION['clsName'])){
+    $clsName = $_SESSION['clsName'];
+    $attDate = $_SESSION['attDate'];
+}else{
+    $clsName = $_POST['clsName'];
+    $attDate = $_POST['attDate'];
+    $_SESSION['clsName'] = $clsName;
+    $_SESSION['attDate'] = $attDate;
+}
+
+// echo "$attDate";
 $currentDate = date('Y-m-d');
 
 
@@ -44,6 +55,44 @@ function attendanceConfirm($attConfirm){
 ?>
 
 
+<script>    
+
+        function submitAtt(id){
+
+            
+            $("#modal-attView-submit".concat(id)).modal("show");
+            
+
+
+        }
+
+        function submitForm(id){
+            
+            document.getElementsByClassName("submit-attView")[id].submit();
+		}
+
+</script>
+
+<!-- <div class="modal" id = "modal-attView-submit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to submit this student attendance?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "submitForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
 <html>
 <main class="ttr-wrapper">
 <div class="container-fluid">
@@ -75,6 +124,8 @@ function attendanceConfirm($attConfirm){
                                 
 
                                 if($attDate > $currentDate){
+
+
                                     $sql = "SELECT COUNT(*) AS 'StudentAbsent' FROM Student
                                     LEFT OUTER JOIN attendancestd ON Student.stdMKN = attendancestd.stdMKN
                                     WHERE clsName = '$clsName' AND attDate = '$attDate' AND attExpect = 0";
@@ -129,20 +180,69 @@ function attendanceConfirm($attConfirm){
                                     <th>MyKid No</th>
                                     <th>Student</th>
                                     <th>Actual Attendance</th>
+                                    <th>Modify</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     ";
-
+                                    $countStd = 0;
                                     while( $row = mysqli_fetch_array($result)){
                                         echo "
                                         <tr>
                                         <td>$count</td>
                                         <td>$row[stdMKN]</td>
-                                        <td>$row[stdName]</td>";
-                                        attendanceConfirm($row['attConfirm']);
-                                        echo " </tr>
+                                        <td>$row[stdName]</td>
+                                        <form method = 'post' action = 'attendanceViewProcess.php' class = 'submit-attView'>
+                                        <td>
+                                        <select name = 'attConfirm' value = '$row[attConfirm]' class = 'form-control' id='select'>
                                         ";
+                                        if($row['attConfirm'] == 1){
+                                            echo "
+                                            <option value = '1' selected> Present </option>
+                                            <option value = '0'> Absent </option>";
+                                        }else{
+                                            echo "
+                                            <option value = '1'> Present </option>
+                                            <option value = '0' selected> Absent </option>";
+                                        }
+                                        echo"
+                                        </select>
+                                        </td>
+                                        
+                                        ";
+                                        
+                                        echo " 
+                                        <td>
+                                        <input type = 'hidden' name = 'attID' value = '$row[attID]' >
+                                        <button type = 'button' class = 'btn red pull-left' onclick = 'submitAtt($countStd)'>Submit</button></td>
+                                        </form>
+                                        </tr>
+                                        ";
+
+                                        echo "
+                                    
+                                    <div class='modal' id = 'modal-attView-submit$countStd'>
+                                    <div class='modal-dialog' role='document'>
+                                        <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <h5 class='modal-title'>Confirmation</h5>
+                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'></span>
+                                            </button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <p>Are you confirm to submit this student attendance?</p>
+                                        </div>
+                                        <div class='modal-footer'>
+                                            <button type='button' class='btn btn-primary' onclick = 'submitForm($countStd)'>Confirm</button>
+                                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                    ";
+                                        $countStd+=1;
                                         $count+=1;
                                     }
 

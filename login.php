@@ -40,7 +40,7 @@
     <label> Password:
     <input name="password" value="" type="password" required> </label>
     <p> Don't have an account? <a href="registerParent.php">Create an Account</a> now! </p>
-    <label><a href="login.html#">Forgot Password?</a></label>
+    <label><a href="forgetPassword.php">Forgot Password?</a></label>
 
     <input name="submit" id="submit" class="btn btn-default" value="Log In" type="submit">
   </form>

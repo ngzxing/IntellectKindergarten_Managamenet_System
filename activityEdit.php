@@ -4,6 +4,44 @@ include "sessionStaff.php";
 include "dbconnect.php";
 ?>
 
+<script>    
+
+    function submittedAct(){
+
+        $("#modal-actEdit-submit").modal("show");
+
+    }
+
+    function edittedAct(){
+
+        $("#modal-actEdit-edit").modal("show");
+
+    }
+
+    function deletedAct(){
+
+        $("#modal-actEdit-delete").modal("show");
+
+    }
+
+    function submittedForm(){
+        document.getElementById("operation").value = "submitting";
+        document.getElementById("form-select").submit();
+    }
+
+    function edittedForm(){
+        document.getElementById("operation").value = "editing";
+        document.getElementById("form-select").submit();
+    }
+
+    function deletedForm(){
+
+        document.getElementById("operation").value = "deleting";
+        document.getElementById("form-select").submit();
+    }
+
+</script>
+
         <script src="js/tinymce.min.js" referrerpolicy="origin"></script>
 
         <script>
@@ -23,28 +61,88 @@ include "dbconnect.php";
           
            
         </script>
-  
+
+<div class="modal" id = "modal-actEdit-submit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you confirm to submit this activity?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick = "submittedForm()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id = "modal-actEdit-edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you confirm to edit this activity?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick = "edittedForm()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id = "modal-actEdit-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you confirm to delete this activity?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick = "deletedForm()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <body>
 
     <main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Student List</h4>
+				<h4 class="breadcrumb-title">Activity Editor</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-					<li>Announcement Editor</li>
+					<li>Activity Editor</li>
 				</ul>
 			</div>	
-			<div class="row">
-				<div class="col-lg-12 m-b30">
-					<div class="widget-box">
-						<div class="wc-title">
-                            
+            <div class="row">
+				<div class="col-lg-9 m-b30" style="width:100%;">
+					<div class="widget-box" >
+						<div class="wc-title" >
 							<h4>Activity Editor</h4>
+						</div>
 
+                            <div class="widget-inner">
                             <form id = 'form-select' method = 'post' action = 'activityEditProcess.php' >
-                            
 
                             <?php
                             
@@ -55,8 +153,9 @@ include "dbconnect.php";
                             echo "
                             
                             
-                            <div class = 'row mt-5'>
-                            <div class = 'col-lg-2'><label><select name = 'clsName' id = 'selectClass'>
+                            <div class=' row'> 
+								<label class='col-sm-2 col-form-label'>Select Class</label>
+								<div class='col-sm-8'><select name = 'clsName' id = 'selectClass'>
                             
                             ";
 
@@ -72,17 +171,14 @@ include "dbconnect.php";
                             
                             echo"
                             
-                            </select></label></div>
-                            </div>
+                            </select></div></div>
+                            
                             ";
                             
                             ?>
+                        
+                        </div>
                             
-                            
-
-
-						</div>
-
                         <div class="widget-inner">                    
                         
 
@@ -140,16 +236,18 @@ include "dbconnect.php";
                             if(!isset($_POST["editing"])){
                             
                             echo "
-
-                            <button type='submit' class='mt-5 mx-3 btn btn-success'>Submit</button>
+                            <input name = 'operation' id = 'operation' type = 'hidden'> 
+                            <button type='button' class='mt-5 mx-3 btn btn-success' onclick = 'submittedAct()'>Submit</button>
                             ";
                             }
                             else{
                             
                             echo "
                             
-                            <button class = 'btn blue mt-5 mx-3' name = 'editing' value = '$result[actID]' type = 'submit'>Edit</button>
-                            <button class = 'btn red mt-5 mx-3' name = 'deleting' value = '$result[actID]' type = 'submit'>Delete</button>
+                            <input name = 'operation' id = 'operation' type = 'hidden'>
+                            <input name = 'actID' value = '$result[actID]' type = 'hidden'>
+                            <button type='button' class = 'btn blue mt-5 mx-3' onclick = 'edittedAct()'>Edit</button>
+                            <button type='button' class = 'btn red mt-5 mx-3'  onclick = 'deletedAct()'>Delete</button>
                             ";
 
                             }

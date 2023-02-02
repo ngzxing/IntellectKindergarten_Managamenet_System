@@ -16,7 +16,24 @@ foreach( $queryPer as $qp ){
     mysqli_query($con, $insert);
 }
 
-header("location:assestSubject.php");
+// header("location:assestSubject.php");
 
 mysqli_close($con);
+
+echo "
+
+<form method = 'post' action = 'assestSubject.php' id = 'form'>
+
+    <input type = 'hidden' name = 'success' value = 'success'>
+    
+
+</form>
+
+<script>
+
+    document.getElementById('form').submit();
+
+</script>
+
+";
 ?>

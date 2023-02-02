@@ -5,38 +5,18 @@ include "dbconnect.php"
 ?>
     <script>    
 
-        function confirm(){
+        function confirm(id){
 
-            $("#loozhiyuan").modal("show");
+            $("#modal-appointment-confirmation".concat(id) ).modal("show");
             
         }
 
-        function submitForm(){
+        function submitForm(id){
 
-            document.getElementById("form").submit();
+            document.getElementsByClassName("form")[id-1].submit();
         }
 
     </script>
-
-<div class="modal" id = "loozhiyuan">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick = "submitForm()">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 	<!--Main container start -->
 	<main class="ttr-wrapper">
@@ -80,14 +60,38 @@ include "dbconnect.php"
                                     <td>$count</td>
                                     <td><a href = '#'>$row[pName]</a></td>
                                     <td><a href = '#'>$row[stdName]</a></td>
-                                    <form method = 'post' action = 'appointmentProcess.php' id = 'form'>
+                                    <form method = 'post' action = 'appointmentProcess.php' class = 'form'>
                                         <input type = 'hidden' name = 'pIC' value = $row[pIC]>
                                         <input type = 'hidden' name = 'stdMKN' value = $row[stdMKN]>
-                                        <td><div class = 'form-group'><input type = 'datetime-local' name = 'datetime' class = 'form-control'></div></td>
-                                        <td><div class = 'form-group'><button type = 'button' class = 'btn green pull-right' onclick = 'confirm();'>Submit</button></div></td>
+                                        <td><div class = 'form-group'><input type = 'datetime-local' name = 'datetime' class = 'form-control' required></div></td>
+                                        <td><div class = 'form-group'><button type = 'button' class = 'btn green pull-right' onclick = 'confirm($count);'>Submit</button></div></td>
                                     </form>
                                     </tr>
                                 
+                                    ";
+
+                                    echo "
+                                    
+                                    <div class='modal' id = 'modal-appointment-confirmation$count'>
+                                    <div class='modal-dialog' role='document'>
+                                      <div class='modal-content'>
+                                        <div class='modal-header'>
+                                          <h5 class='modal-title'>Confirmation</h5>
+                                          <button type='button' class='btn-close' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'></span>
+                                          </button>
+                                        </div>
+                                        <div class='modal-body'>
+                                          <p>Are you confirm to submit this appointment?</p>
+                                        </div>
+                                        <div class='modal-footer'>
+                                          <button type='button' class='btn btn-primary' onclick = 'submitForm($count)'>Confirm</button>
+                                          <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                    
                                     ";
 
                                     $count+=1;

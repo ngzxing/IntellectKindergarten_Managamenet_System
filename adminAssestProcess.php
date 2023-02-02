@@ -10,6 +10,8 @@ $year = $_POST["year"];
 $query = "SELECT * FROM STUDENT WHERE stdRegStatus = 2";
 $result = mysqli_query($con, $query);
 
+if($_POST["operation"] == "Create"){
+
 while( $row = mysqli_fetch_array($result) ){
 
 
@@ -54,6 +56,31 @@ while( $row = mysqli_fetch_array($result) ){
     }
 }
 
+}
+elseif($_POST["operation"] == "Delete"){
+
+while( $row = mysqli_fetch_array($result) ){
+    
+    echo "$row[stdMKN] | ";
+    echo "$year |";
+    echo "$period |";
+    echo "$date";
+    $query = "DELETE FROM Performance WHERE stdMKN = '$row[stdMKN]' AND spYear ='$year' AND spPeriod = '$period' AND spDate = '$date'  ";
+    mysqli_query($con, $query);
+}
+
+
+}
+else
+{
+    if(isset($_POST["newPeriod"])){
+        
+        echo "$year $period $date";
+        $query = "UPDATE Performance SET spPeriod = '$_POST[newPeriod]' WHERE  spYear ='$year' AND spPeriod = '$period' AND spDate = '$date'";
+        mysqli_query($con, $query);
+    }
+    
+}
 
 mysqli_close($con);
 

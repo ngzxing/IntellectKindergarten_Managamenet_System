@@ -5,6 +5,37 @@ include "sessionStaff.php";
 include "dbconnect.php"
 ?>
 
+	<script>
+
+		function changePeriod(id){
+
+			let data = document.getElementsByClassName(id);
+
+			document.getElementById('idate').value = data[0];
+			document.getElementById('iperiod').value = data[1];
+			document.getElementById('iyear').value = data[2];
+			document.getElementById('ioperation').value = "Edit";
+
+			document.getElementById('changePeriod').innerHTML = "<input name = 'newPeriod' type='text' class = 'form-control' autofocus onkeyup = 'enter()'>";
+		}
+
+		function enter(){
+			
+			if(key == 'Enter'){
+				document.getElementById("formEdit").submit();
+			}
+		}
+
+	</script>
+
+<form method = 'post' action = 'adminAssestProcess.php' id = 'formEdit'>
+	<input name = 'date' type = 'hidden' id = 'idate'>
+	<input name = 'period'  type = 'hidden' id = 'iperiod'>
+	<input name = 'year'  type = 'hidden' id = 'iyear'>
+	<input name = 'operation'  type = 'hidden' id = 'ioperation'>
+</form>
+
+		
 	<!--Main container start -->
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
@@ -31,8 +62,72 @@ include "dbconnect.php"
                                     <label>Period <input name="period" value="" type="text" required class = "form-control"></label>
                                     <label>Year <input name="year" value="" type="text" required class = "form-control"></label>
 
-                                    <input name="submit" class="pt-2 btn btn-default " value="Create" type="submit">
+                                    <input name="operation" class="pt-2 btn btn-default " value="Create" type="submit">
                                 </form>
+
+                            </div> 
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-12 m-b30">
+					<div class="widget-box">
+						<div class="wc-title">
+							<h4>Assestment History</h4>
+						</div>
+						<div class="widget-inner">
+
+                            <div class="col-xs-12 col-sm-12 register-form form clearfix pt-5">
+
+								<table class="table table-striped table-hover ">
+                                	<thead>
+										<tr>
+										<th style = 'width:5%'>#</th>
+										<th style = 'width:25%'>Date</th>
+										<th style = 'width:25%'>Period</th>
+										<th style = 'width:25%'>Year</th>
+										<th></th>
+										</tr>
+                                	</thead>
+                                	<tbody>
+
+							<?php
+									
+								$query = "SELECT DISTINCT spPeriod, spYear, spDate FROM  Performance ORDER BY performanceID DESC;";
+								$result = mysqli_query( $con, $query);
+								$count = 1;
+
+								while( $row = mysqli_fetch_array($result) ){
+				
+								echo"
+									
+
+									<tr>
+									<td>$count</td>
+									<td id = 'changeDate'><p ondblclick = 'changeDate($count);' class = '$count'>$row[spDate]</p></td>
+									<td id = 'changePeriod'><p ondblclick = 'changePeriod($count);' class = '$count'>$row[spPeriod]</p></td>
+									<td id = 'changeYear'><p ondblclick = 'changeYear($count);' class = '$count'>$row[spYear]</p></td>
+									<td>
+										<form method = 'post' action = 'adminAssestProcess.php' >
+											<input type = 'hidden' name = 'date' value = '$row[spDate]' >
+											<input type = 'hidden' name = 'period' value = '$row[spPeriod]'>
+											<input type = 'hidden' name = 'year' value = '$row[spYear]'>
+											<input type = 'submit' class = 'btn form-control red' value = 'Delete' name = 'operation'>
+										</form>
+									</td>
+									</tr>
+								
+								";
+
+								$count += 1;
+								}
+									
+									
+							?>
+											
+										
+									</tbody>
 
                             </div> 
 

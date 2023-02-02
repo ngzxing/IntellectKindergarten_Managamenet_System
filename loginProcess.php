@@ -57,13 +57,12 @@ else{
 
     $row = mysqli_fetch_array($result);
 
-    if($row["pPassword"] == $password){
+    if( password_verify($password, $row["pPassword"])  ){
 
         $_SESSION["parent_session_id"] = session_id();
         $_SESSION["pIC"] = $ic;
 
         mysqli_close($con);
-        echo "jibai";
         header("location:dashboardParent.php");
     }
 }
@@ -72,13 +71,13 @@ if($countTeac != 0){
 
     $row = mysqli_fetch_array($result);
 
-    if($row["tPassword"] == $password){
+    if( password_verify($password, $row["tPassword"]) ){
 
         if($row["tPosition"] == 1){
 
             $_SESSION["admin_session_id"] = session_id();
             $_SESSION["tIC"] = $ic;
-            echo"ganina";
+   
             mysqli_close($con);
             header("location:dashboardAdmin.php");
             
@@ -88,7 +87,6 @@ if($countTeac != 0){
             $_SESSION["teac_session_id"] = session_id();
             $_SESSION["tIC"] = $ic;
 
-            echo"pubo";
             mysqli_close($con);
             header("location:dashboardTeac.php");
         }

@@ -58,6 +58,10 @@ include "dbconnect.php";
 	<link rel="stylesheet" type="text/css" href="css/bootstrap5.min.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
 	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
 	
@@ -182,10 +186,10 @@ include "dbconnect.php";
 						<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="" src="assets/images/testimonials/pic3.jpg" width="32" height="32"></span></a>
 						<div class="ttr-header-submenu">
 							<ul>
-								<li><a href="user-profile.php">My profile</a></li>
-								<li><a href="list-view-calendar.php">Activity</a></li>
-								<li><a href="mailbox.php">Messages</a></li>
-								<li><a href="../login.php">Logout</a></li>
+								<li><a href="profileParent.php">My profile</a></li>
+								<li><a href="#">Activity</a></li>
+								<li><a href="#">Messages</a></li>
+								<li><a href="logoutProcess.php">Logout</a></li>
 							</ul>
 						</div>
 					</li>
@@ -258,7 +262,7 @@ include "dbconnect.php";
 					<li>
 						<a href="dashboardParent.php" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-home"></i></span>
-		                	<span class="ttr-label">Dashborad</span>
+		                	<span class="ttr-label">Dashboard</span>
 		                </a>
 		            </li>
 					<li>
@@ -281,13 +285,7 @@ include "dbconnect.php";
 		                </a>
 		                <ul>
 		                	<li>
-		                		<a href="mailbox.php" class="ttr-material-button"><span class="ttr-label">Mail Box</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="mailbox-compose.php" class="ttr-material-button"><span class="ttr-label">Compose</span></a>
-		                	</li>
-							<li>
-		                		<a href="mailbox-read.php" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
+		                		<a href="financialStudent.php" class="ttr-material-button"><span class="ttr-label">Financial Status</span></a>
 		                	</li>
 		                </ul>
 		            </li>
@@ -304,15 +302,21 @@ include "dbconnect.php";
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
 		                <ul>
-		                	<li>
-		                		<a href="mailbox.php" class="ttr-material-button"><span class="ttr-label">Covid Status</span></a>
+							<li>
+		                		<a href="attendanceStudent.php" class="ttr-material-button"><span class="ttr-label">Attendance</span></a>
 		                	</li>
 		                	<li>
-		                		<a href="mailbox-compose.php" class="ttr-material-button"><span class="ttr-label">Attendance</span></a>
+		                		<a href="covidStudent.php" class="ttr-material-button"><span class="ttr-label">Covid Status</span></a>
 		                	</li>
 		                </ul>
 		            </li>
 					<li>
+						<a href="profileParent.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-book"></i></span>
+		                	<span class="ttr-label">My Profile</span>
+		                </a>
+		            </li>
+					<!-- <li>
 						<a href="#" class="ttr-material-button">
 							<span class="ttr-icon"><i class="ti-user"></i></span>
 		                	<span class="ttr-label">My Profile</span>
@@ -320,13 +324,13 @@ include "dbconnect.php";
 		                </a>
 		                <ul>
 		                	<li>
-		                		<a href="user-profile.php" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
+		                		<a href="profileParent.php" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
 		                	</li>
 		                	<li>
 		                		<a href="teacher-profile.php" class="ttr-material-button"><span class="ttr-label">Teacher Profile</span></a>
 		                	</li>
 		                </ul>
-		            </li>
+		            </li> -->
 		            <li class="ttr-seperate"></li>
 				</ul>
 				<!-- sidebar menu end -->

@@ -8,10 +8,10 @@ include "dbconnect.php";
 <main class="ttr-wrapper">
 <div class="container-fluid">
     <div class="db-breadcrumb">
-        <h4 class="breadcrumb-title">Dashboard</h4>
+        <h4 class="breadcrumb-title">Activities</h4>
         <ul class="db-breadcrumb-list">
             <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-            <li>Dashboard</li>
+            <li>Activities</li>
         </ul>
 
     </div>	
@@ -31,8 +31,9 @@ include "dbconnect.php";
                 <div class='widget-box '>
                     <div class='wc-title'>
                     <form id = "form-select" method = "post" action = "activityPostParent.php" >
-                            <div class = "row mt-5">
-                            <div class = "col-lg-2"><label><select name = "clsName" id = "selectClass" onchange = "changeClass();">
+                    <div class=' row'> 
+								<label class='col-sm-2 col-form-label'>Select your kid/s</label>
+								<div class='col-sm-8'><select name = "clsName" class='form-control' id = "selectClass" onchange = "changeClass();">
 
                             <?php
                             
@@ -68,9 +69,8 @@ include "dbconnect.php";
                             
                            
                             ?>
-                            </select></label></div>
+                            </select></div></div>
         
-                            </div>
                     </form>
                     </div>
                    

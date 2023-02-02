@@ -174,7 +174,7 @@ include "dbconnect.php"
                                 $queryGetSbjPerID = "SELECT * FROM sbjPerformance WHERE evalID = '$et' AND sbjID = '$rowGetSubject[sbjID]' ";
                                 $resultGetSbjPerID = mysqli_fetch_array(mysqli_query($con, $queryGetSbjPerID));
 
-                                $queryGetPer = "SELECT * FROM performRating WHERE performanceId = '$performanceID' AND sbjPerID = '$resultGetSbjPerID[sbjPerID]' ";
+                                $queryGetPer = "SELECT * FROM performRating JOIN rating ON rating.ratingID = performRating.ratingID WHERE performanceId = '$performanceID' AND sbjPerID = '$resultGetSbjPerID[sbjPerID]' ";
                                 $resultGetPer = mysqli_fetch_array(mysqli_query($con, $queryGetPer));
                                 
                                 if(!isset($resultGetPer["ratingID"])){
@@ -182,7 +182,7 @@ include "dbconnect.php"
                                 echo "<td>-</td>";
                                 }else{
 
-                                echo "<td>$resultGetPer[ratingID]</td>";
+                                echo "<td>$resultGetPer[ratingName]</td>";
                                 }
                             }
 
@@ -205,7 +205,7 @@ include "dbconnect.php"
                             <table class='mt-5 table table-striped table-hover '>
                                 <thead>
                                     <tr> 
-                                        <td> Subject </td> 
+                                        <th> Subject </th> 
                             ";
                                 
                             $queryGetiType = "SELECT * FROM iType";
@@ -215,7 +215,7 @@ include "dbconnect.php"
                             while($rowGetiType = mysqli_fetch_array($resultGetiType)){
     
                             echo "
-                                        <td>$rowGetiType[iType]</td>
+                                        <th>$rowGetiType[iType]</th>
                             ";
                             array_push( $iType, $rowGetiType['iType']);
     
@@ -228,7 +228,7 @@ include "dbconnect.php"
                                 <body>
                             ";
     
-                            $queryGetiName = "SELECT * FROM indexSubject";
+                            $queryGetiName = "SELECT * FROM performbased JOIN indexPerformance ON pIName = iPerID WHERE ptName = '$rowGetPt[ptName]' ";
                             $resultGetiName = mysqli_query($con, $queryGetiName);
     
                             $queryGetPerformanceID = "SELECT * FROM Performance WHERE spPeriod = '$_POST[period]' AND spYear = '$_POST[year]' AND stdMKN = '$_POST[stdMKN]' ";
@@ -247,10 +247,8 @@ include "dbconnect.php"
                                 error_reporting(E_ERROR | E_PARSE);
                                 foreach( $iType as $it ){
     
-                                    $queryGetiPerID = "SELECT * FROM indexPerformance WHERE iType = '$et' AND iName = '$rowGetiName[iName]' ";
-                                    $resultGetiPerID = mysqli_fetch_array(mysqli_query($con, $queryGetiPerID));
     
-                                    $queryGetPer = "SELECT * FROM performComment WHERE performanceId = '$performanceID' AND iPerID = '$resultGetiPerID[iPerID]' ";
+                                    $queryGetPer = "SELECT * FROM performComment WHERE performanceId = '$performanceID' AND iPerID = '$rowGetiName[pbID]' ";
                                     $resultGetPer = mysqli_fetch_array(mysqli_query($con, $queryGetPer));
                                     
                                     if(!isset($resultGetPer["pcComment"])){

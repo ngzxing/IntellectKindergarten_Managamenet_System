@@ -4,7 +4,47 @@ include "sessionAssest.php";
 include "sessionStaff.php";
 include "dbconnect.php";
 
+error_reporting(E_ERROR | E_PARSE);
+
 ?>
+
+<script>    
+
+        function submitAss(){
+
+            
+            $("#modal-assIndexStd-submit").modal("show");
+            
+
+
+        }
+
+        function submitForm(){
+            
+            document.getElementById("submit-asset").submit();
+        }
+
+</script>
+
+<div class="modal" id = "modal-assIndexStd-submit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to submit this assestment?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "submitForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 	<!--Main container start -->
 	<main class="ttr-wrapper">
@@ -24,6 +64,22 @@ include "dbconnect.php";
 						</div>
 
 						<div class="widget-inner">
+
+                        <?php
+
+                        if(isset($_POST["success"])){
+
+                        echo "
+
+                        <div class='alert alert-dismissible alert-success'>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                            <strong>Well done!</strong> You have successfully submit this assestment.</a>
+                        </div>
+
+                        ";
+                        }
+                        ?>
+
                             <?php echo "<h3 class = 'mb-5'>$_POST[stdName]</h3>" ?>
                             <table class="table table-striped table-hover ">
                                 <thead>
@@ -34,7 +90,7 @@ include "dbconnect.php";
                                 </thead>
                                 <tbody>
 
-                                <form method = 'POST' action = 'assestIndexProcess.php' class = 'form-group'>
+                                <form method = 'POST' action = 'assestIndexProcess.php' class = 'form-group' id = 'submit-asset'>
                                 <?php
                                 
                                 $query = "SELECT * FROM indexPerformance JOIN performBased ON pIName = iperID WHERE ptName = '$_SESSION[ptName]' ";
@@ -70,11 +126,13 @@ include "dbconnect.php";
 
                                     <input type = 'hidden' value = '$performanceID' name = 'performanceID'>
                                     <input type = 'hidden' value = '$iPerIDList' name = 'iPerID'>
+                                    <input type = 'hidden' value = '$_POST[stdMKN]' name = 'stdMKN'>
+                                    <input type = 'hidden' value = '$_POST[stdName]' name = 'stdName'>
                                 
                                 "
                                 ?>    
 
-                                <tr><td><input type = 'submit' class = 'btn green pull-right' value = 'Submit'><td></tr>
+                                <tr><td><button type = 'button' class = 'btn green pull-right' onclick = 'submitAss()'>Submit</button><td></tr>
                                 </form>
                                 </tbody>
                             </table>

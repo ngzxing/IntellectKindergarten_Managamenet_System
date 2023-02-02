@@ -1,15 +1,49 @@
 <?php
 
 include "leftSideBarParent.php";
-include "dbconnect.php";
+// include "sessionParent.php";
+// include "dbconnect.php";
 $pIC = $_SESSION["pIC"];
 
 $datemin = date('Y-m-d', strtotime(date("Y-m-d"). ' + 1 days'));
 $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
 
-
 ?>
 
+    <script>    
+
+        function submitAttStd(){
+
+            $("#modal-attStd-submit").modal("show");
+            
+        }
+
+        function submitForm(){
+
+            document.getElementById("submitAttStd-form").submit();
+        }
+
+    </script>
+
+<div class="modal" id = "modal-attStd-submit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm to submit this attendance?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick = "submitForm()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 	<!--Main container start -->
 	<main class="ttr-wrapper">
@@ -31,9 +65,8 @@ $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
 						</div>
                         
 
-                        <form class="edit-profile m-b30" name="attendanceForm" method="post" action = "attendanceStudentProcess.php" onsubmit="return checkvalidDate()">
-                        <div class="form-group row">
-                        &nbsp 
+                        <form class="edit-profile m-b30" name="attendanceForm" method="post" action = "attendanceStudentProcess.php" onsubmit="return checkvalidDate()" id = "submitAttStd-form">
+                        <div class="form-group row"> 
 								<label class="col-sm-2 col-form-label">Select your kid/s</label>
 								<div class="col-sm-8">
                                 <select name = "stdMKN" class="form-control" id="select">
@@ -54,7 +87,6 @@ $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
 						</div>
                         
                         <div class="form-group row">
-                        &nbsp 
                             <label class="col-sm-2 col-form-label">Attendance Date</label>
                             <div class="col-sm-8">
                             <input name="attDate" value="" type="date" min=<?php echo $datemin; ?>  
@@ -62,21 +94,17 @@ $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
                             </div>
                         </div>
                          
-                        <div class="form-group row">
-                        &nbsp 
+                        <div class="form-group row"> 
                             <label class="col-sm-2 col-form-label">Attendance Status</label>
-                            <span class="form-check">
-                            &nbsp &nbsp <input class="form-check-input" type="radio" name="attExpect" value=1 checked>
-                            <label class="form-check-label" for="attExpect">YES</label>
-                            </span>
-                            <span class="form-check">
-                            &nbsp &nbsp <input class="form-check-input" type="radio" name="attExpect" value=0>
-                            <label class="form-check-label" for="attExpect">NO</label>
+                            <span class="col-sm-8 form-check">
+                            &nbsp &nbsp
+                            <label class="form-check-label" for="attExpect"><input class="form-check-input" type="radio" name="attExpect" value=1 checked>YES</label>
+                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                            <label class="form-check-label" for="attExpect"><input class="form-check-input" type="radio" name="attExpect" value=0>NO</label>
                             </span>
                         </div>
 
-                        <div class="form-group row">
-                        &nbsp 
+                        <div class="form-group row"> 
                             <label class="col-sm-2 col-form-label">Reason</label>
                             <div class="col-sm-8">
                            
@@ -89,7 +117,7 @@ $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
 											<div class="col-sm-2">
 											</div>
 											<div class="col-sm-7">
-												<button type="submit" class="btn">Submit</button>
+												<button type="button" class="btn green" onclick = "submitAttStd()">Submit</button>
 												<button type="reset" class="btn-secondry">Cancel</button>
 											</div>
 										</div>

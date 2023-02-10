@@ -115,7 +115,7 @@ $datemax = date("Y-m-d");
                         <div class="form-group row">
                         <label class="col-sm-2 col-form-label">RTK Result</label>
                         <div class="col-sm-8">
-                        <input name="csPhoto" value="" type="file" required>
+                        <input name="csPhoto" value="" type="file" class = 'form-control' required>
                         </div>
                         </div>
 

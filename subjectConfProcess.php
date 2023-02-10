@@ -31,6 +31,8 @@ if($_POST["operation"] == "Create"){
         mysqli_query($con, $queryInsert);
     }
 
+    
+
 }elseif($_POST["operation"] == "Delete"){
 
     $sbjID = $_POST["sbjID"];

@@ -5,6 +5,11 @@ include "sessionStaff.php";
 $currentDate = date('Y-m-d');
 ?>
 
+<style>
+input[type="date"] { 
+  padding: 5px;
+}
+</style>
 
 <!--Main container start -->
 <main class="ttr-wrapper">
@@ -44,8 +49,8 @@ $currentDate = date('Y-m-d');
                             		?>
                                     </select></label>
                                     
-                                    <label>Date Start<br><input class = "col-sm-12" name="csStart" value="" type="date" max=<?php echo "$currentDate"; ?> required></label>
-									<label>Date End<br><input class = "col-sm-12" name="csEnd" value="" type="date" max=<?php echo "$currentDate"; ?> required></label>
+                                    <label>Date Start<br><input class = "col-sm-12 form-control" name="csStart" value="" type="date" max=<?php echo "$currentDate"; ?> required></label>
+									<label>Date End<br><input class = "col-sm-12 form-control" name="csEnd" value="" type="date" max=<?php echo "$currentDate"; ?> required></label>
 
                                     <input name="submit" class="mt-4 btn green pull-right" value="Submit" type="submit">
                                 </form>

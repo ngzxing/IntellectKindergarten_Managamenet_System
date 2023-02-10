@@ -36,7 +36,6 @@ if($continue){
 
 include "dbconnect.php";
 
-session_start();
 
 $ic = $_POST["ic"];
 $password = $_POST["password"];
@@ -59,6 +58,8 @@ else{
 
     if( password_verify($password, $row["pPassword"])  ){
 
+        session_start();
+
         $_SESSION["parent_session_id"] = session_id();
         $_SESSION["pIC"] = $ic;
 
@@ -72,6 +73,8 @@ if($countTeac != 0){
     $row = mysqli_fetch_array($result);
 
     if( password_verify($password, $row["tPassword"]) ){
+
+        session_start();
 
         if($row["tPosition"] == 1){
 

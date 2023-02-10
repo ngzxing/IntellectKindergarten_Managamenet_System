@@ -4,6 +4,7 @@
 // include "dbconnect.php";
 include "sessionStaff.php";
 
+error_reporting(E_ERROR | E_PARSE);
 
 $tIC = $_SESSION["tIC"];
 
@@ -71,6 +72,8 @@ $salPaidColor = array("text-red", "text-green");
                                     <tbody>
                                     ";
 
+                                    if( mysqli_num_rows( $result ) != 0){
+
                                     while( $row = mysqli_fetch_array($result)){
                                         $sPS = $row['salPaidStatus'];
                                         echo "
@@ -86,8 +89,10 @@ $salPaidColor = array("text-red", "text-green");
                                         <td>$row[salEmployerEPF]</td>
                                         <td>$row[salNet]</td>
                                         <div class='$salPaidColor[$sPS]'><td>$salPaid[$sPS]</td></div>
-                                        <td><a href='salaryViewDetailTeac.php?id=".$row['salID']."' class='btn btn-warning'>GO</a></td>
+                                        <td><a href='salaryViewDetailTeac.php?id=".$row['salID']."' class='btn btn-warning'>View</a></td>
                                         ";
+                                    }
+
                                     }
                                 
                                 echo"

@@ -4,12 +4,13 @@ include "sessionAdmin.php";
 include "sessionStaff.php";
 include "dbconnect.php";
 
+$feeDate = $_POST['fDate'];
 $month = $_POST['month'];
 $year = $_POST['year'];
 
 
 $query = "SELECT * FROM Student s LEFT OUTER JOIN fee f ON s.stdMKN = f.stdMKN 
-        WHERE stdRegStatus = 2 ORDER BY s.prgName, s.clsName";
+        WHERE stdRegStatus = 2 AND f.fDate = '$feeDate' ORDER BY s.prgName, s.clsName";
 $result = mysqli_query($con, $query);
 $count = mysqli_num_rows($result);
 
@@ -108,6 +109,7 @@ $payStatus = array("Unpaid", "Paid", "Processing");
                                         <td>$row[payDate]</td>
                                         <td>
                                         <form method = 'post' action = 'financialApprove.php' class = 'approve-finnView'>
+                                        <input type = 'hidden' name = 'fDate' value = '$fDate' >
                                         <input type = 'hidden' name = 'fID' value = '$row[fID]'>
                                         <input type = 'hidden' name = 'month' value = '$month' >
                                         <input type = 'hidden' name = 'year' value = '$year' >
@@ -116,6 +118,7 @@ $payStatus = array("Unpaid", "Paid", "Processing");
                                         </td>
                                         <td>
                                         <form method = 'post' action = 'financialReject.php' class = 'reject-finnView'>
+                                        <input type = 'hidden' name = 'fDate' value = '$fDate' >
                                         <input type = 'hidden' name = 'fID' value = '$row[fID]'>
                                         <input type = 'hidden' name = 'month' value = '$month' >
                                         <input type = 'hidden' name = 'year' value = '$year' >
@@ -124,9 +127,10 @@ $payStatus = array("Unpaid", "Paid", "Processing");
                                         </td>
                                         <td>
                                         <form method = 'post' action = 'financialUpdate.php'>
+                                        <input type = 'hidden' name = 'fDate' value = '$fDate' >
                                         <input type = 'hidden' name = 'fID' value = '$row[fID]'>
                                         <input type = 'hidden' name = 'stdMKN' value = '$row[stdMKN]' >
-                                        <input type = 'submit' class = 'btn red pull-left' value = 'GO' disabled></td>
+                                        <input type = 'submit' class = 'btn yellow pull-left' value = 'Manage' disabled></td>
                                         </form>
                                         </td>
                                         ";
@@ -183,6 +187,7 @@ $payStatus = array("Unpaid", "Paid", "Processing");
                                         <td>$row[payDate]</td>
                                         <td>
                                         <form method = 'post' action = 'financialApprove.php'>
+                                        <input type = 'hidden' name = 'fDate' value = '$fDate' >
                                         <input type = 'hidden' name = 'fID' value = '$row[fID]'>
                                         <input type = 'hidden' name = 'stdMKN' value = '$row[stdMKN]' >
                                         <input type = 'submit' class = 'btn red pull-left' value = 'Approve' disabled></td>
@@ -190,6 +195,7 @@ $payStatus = array("Unpaid", "Paid", "Processing");
                                         </td>
                                         <td>
                                         <form method = 'post' action = 'financialReject.php'>
+                                        <input type = 'hidden' name = 'fDate' value = '$fDate' >
                                         <input type = 'hidden' name = 'fID' value = '$row[fID]'>
                                         <input type = 'hidden' name = 'stdMKN' value = '$row[stdMKN]' >
                                         <input type = 'submit' class = 'btn red pull-left' value = 'Reject' disabled></td>
@@ -197,9 +203,10 @@ $payStatus = array("Unpaid", "Paid", "Processing");
                                         </td>
                                         <td>
                                         <form method = 'post' action = 'financialUpdate.php'>
+                                        <input type = 'hidden' name = 'fDate' value = '$fDate' >
                                         <input type = 'hidden' name = 'fID' value = '$row[fID]'>
                                         <input type = 'hidden' name = 'stdMKN' value = '$row[stdMKN]' >
-                                        <input type = 'submit' class = 'btn red pull-left' value = 'GO'></td>
+                                        <input type = 'submit' class = 'btn yellow pull-left' value = 'Manage'></td>
                                         </form>
                                         </td>
                                         ";

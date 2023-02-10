@@ -20,6 +20,7 @@ if( $_POST["operation"] == "Create"){
     }
 
 
+
 }elseif( $_POST["operation"] == "Edit"){
 
     $queryEdit = "UPDATE evalType SET rateCtg = '$_POST[rateCtg]' WHERE evalID = '$_POST[evalID]'";

@@ -4,6 +4,7 @@
 // include "dbconnect.php";
 include "sessionStaff.php";
 
+error_reporting(E_ERROR | E_PARSE);
 
 $tIC = $_SESSION["tIC"];
 if(isset($_GET['id']))

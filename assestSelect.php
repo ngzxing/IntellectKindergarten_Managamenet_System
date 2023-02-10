@@ -45,17 +45,17 @@ include "dbconnect.php"
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Assestment Selection</h4>
+				<h4 class="breadcrumb-title">Assessment Selection</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-					<li>Assestment Selection</li>
+					<li>Assessment Selection</li>
 				</ul>
 			</div>	
 			<div class="row">
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
 						<div class="wc-title">
-							<h4>Assestment Selection</h4>
+							<h4>Assessment Selection</h4>
 						</div>
 						<div class="widget-inner">
 
@@ -79,7 +79,7 @@ include "dbconnect.php"
 
                     <form method = 'POST' action = 'assestSelectProcess.php' id = 'filter'>
 
-                    <label>Assestment Type: <select class = 'form-control student-settings' name = 'ptName' class='form-control' id='select' onchange = 'changeFunc();'>";
+                    <label>Assessment Type: <select class = 'form-control student-settings' name = 'ptName' class='form-control' id='select'>";
 
 					$query = "SELECT ptName FROM prgPerform JOIN class ON prgPerform.prgName = class.prgName WHERE class.clsName = '$_GET[clsName]' ";
 					$result = mysqli_query($con, $query);
@@ -95,7 +95,7 @@ include "dbconnect.php"
                     $queryGetPeriod = "SELECT DISTINCT spPeriod FROM Performance";
                     $resultGetPeriod = mysqli_query($con, $queryGetPeriod);
                     
-                    echo"<label>Period<select name = 'period' class='form-control' id='select' onchange = 'changeFunc();'>";
+                    echo"<label>Period<select name = 'period' class='form-control' id='select' >";
 
                     while($rowGetPeriod = mysqli_fetch_array($resultGetPeriod)){
 
@@ -108,7 +108,7 @@ include "dbconnect.php"
                     $queryGetYear = "SELECT DISTINCT spYear FROM Performance";
                     $resultGetYear = mysqli_query($con, $queryGetYear);
 
-                    echo"<label>Year<select name = 'year' class='form-control' id='select' onchange = 'changeFunc();'>";
+                    echo"<label>Year<select name = 'year' class='form-control' id='select' >";
 
                     while($rowGetYear = mysqli_fetch_array($resultGetYear)){
 

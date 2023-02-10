@@ -80,7 +80,7 @@ include "dbconnect.php"
                                 echo "
                                 
                                 <div class = 'col-4 mt-3'>
-                                <h4>$row[rateCtg]</h4>
+                                <h5>$row[rateCtg]</h5>
                                 <form method = 'post' action = 'ratingConfProcess.php' id = 'ratingAddConf'>
                                     <div class = 'row mb-3'>
                                         <input type = 'hidden' name = 'rateCtg' value = '$row[rateCtg]'>

@@ -47,6 +47,7 @@ $count = mysqli_num_rows($result);
                                     <th>#</th>
                                     <th>MyKid No</th>
                                     <th>Student</th>
+                                    <th>Date Test</th>
                                     <th>Temperature</th>
                                     <th>Covid Status</th>
                                     <th>RTK Result</th>
@@ -61,6 +62,7 @@ $count = mysqli_num_rows($result);
                                         <td>$count</td>
                                         <td>$row[stdMKN]</td>
                                         <td>$row[stdName]</td>
+                                        <td>$row[csDate]</td>
                                         <td>$row[csTemperature]</td>
                                         <td>$row[csStatus]</td>
                                         <td><a href='$row[csPhoto]' target='_blank'>$row[csPhoto]</a></td>

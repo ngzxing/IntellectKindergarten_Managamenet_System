@@ -8,6 +8,7 @@ if(!session_id()){
 
 if( !isset($_SESSION["teac_session_id"]) && !isset($_SESSION["admin_session_id"]) )  {
 
+ 
     header("location:login.php");
 }
 

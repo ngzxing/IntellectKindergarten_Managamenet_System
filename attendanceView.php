@@ -4,16 +4,9 @@ include "sessionStaff.php";
 // include "dbconnect.php";
 
 
+$clsName = $_POST['clsName'];
+$attDate = $_POST['attDate'];
 
-if(isset($_SESSION['clsName'])){
-    $clsName = $_SESSION['clsName'];
-    $attDate = $_SESSION['attDate'];
-}else{
-    $clsName = $_POST['clsName'];
-    $attDate = $_POST['attDate'];
-    $_SESSION['clsName'] = $clsName;
-    $_SESSION['attDate'] = $attDate;
-}
 
 // echo "$attDate";
 $currentDate = date('Y-m-d');
@@ -161,7 +154,7 @@ function attendanceConfirm($attConfirm){
                                     echo "
                                     </tbody>
                                     </table>
-                                    <p>TOTAL STUDENT EXPECTED ABSENT = ".$rowpresent['StudentAbsent']. "</p>
+                                    <p><b>TOTAL STUDENT EXPECTED ABSENT = ".$rowpresent['StudentAbsent']. "</b></p>
                                     ";
 
 
@@ -214,6 +207,8 @@ function attendanceConfirm($attConfirm){
                                         echo " 
                                         <td>
                                         <input type = 'hidden' name = 'attID' value = '$row[attID]' >
+                                        <input type = 'hidden' name = 'attDate' value = '$attDate'>
+                                        <input type = 'hidden' name = 'clsName' value = '$clsName'>
                                         <button type = 'button' class = 'btn red pull-left' onclick = 'submitAtt($countStd)'>Submit</button></td>
                                         </form>
                                         </tr>
@@ -249,7 +244,7 @@ function attendanceConfirm($attConfirm){
                                     echo "
                                     </tbody>
                                     </table>
-                                    <p>TOTAL STUDENT PRESENT = ".$rowpresent['StudentPresent']. "</p>
+                                    <p><b>TOTAL STUDENT PRESENT = ".$rowpresent['StudentPresent']. "</b></p>
                                     ";
                                 }
                                     

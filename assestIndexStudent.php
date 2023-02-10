@@ -50,17 +50,17 @@ error_reporting(E_ERROR | E_PARSE);
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Assest Subject</h4>
+				<h4 class="breadcrumb-title">Assessment Index</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-					<li>Assest Subject</li>
+					<li>Assessment Index</li>
 				</ul>
 			</div>	
 			<div class="row">
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
 						<div class="wc-title">
-							<h4>Assest Subject</h4>
+							<h4>Assessment Index</h4>
 						</div>
 
 						<div class="widget-inner">
@@ -80,11 +80,11 @@ error_reporting(E_ERROR | E_PARSE);
                         }
                         ?>
 
-                            <?php echo "<h3 class = 'mb-5'>$_POST[stdName]</h3>" ?>
+                            <?php echo "<h5 class = 'mb-5'>Student Name: $_POST[stdName]</h5>" ?>
                             <table class="table table-striped table-hover ">
                                 <thead>
                                     <tr>
-                                    <th>Assestment Index</th>
+                                    <th>Assessment Index</th>
                                     <th>Comment</th>
                                     </tr>
                                 </thead>
@@ -132,7 +132,7 @@ error_reporting(E_ERROR | E_PARSE);
                                 "
                                 ?>    
 
-                                <tr><td><button type = 'button' class = 'btn green pull-right' onclick = 'submitAss()'>Submit</button><td></tr>
+                                <tr><td></td><td><button type = 'button' class = 'btn green pull-left' onclick = 'submitAss()'>Submit</button><td></tr>
                                 </form>
                                 </tbody>
                             </table>

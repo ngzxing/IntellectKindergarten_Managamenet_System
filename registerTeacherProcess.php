@@ -10,7 +10,7 @@ $postcode = $_POST["tPostcode"];
 $state = $_POST["tState"];
 $occupation = $_POST["tOccupation"];
 $email = $_POST["tEmail"];
-$password = $_POST["tPassword"];
+$password =  password_hash( $_POST["tPassword"], PASSWORD_DEFAULT );
 $phone  = $_POST["tPhone"];
 
 

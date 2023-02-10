@@ -2,6 +2,8 @@
 
 include "sessionStaff.php";
 include "dbconnect.php";
+
+error_reporting(E_ERROR | E_PARSE);
 ?>
 
 <!--Main container start -->

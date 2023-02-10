@@ -47,17 +47,17 @@ error_reporting(E_ERROR | E_PARSE);
 	<main class="ttr-wrapper">
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Assest Subject</h4>
+				<h4 class="breadcrumb-title">Assessment Subject</h4>
 				<ul class="db-breadcrumb-list">
 					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-					<li>Assest Subject</li>
+					<li>Assessment Subject</li>
 				</ul>
 			</div>	
 			<div class="row">
 				<div class="col-lg-12 m-b30">
 					<div class="widget-box">
 						<div class="wc-title">
-							<h4>Assest Subject</h4>
+							<h4>Assessment Subject</h4>
 						</div>
 
                         <form id ='filter' method = 'GET' action = 'assestSubject.php'>
@@ -154,7 +154,7 @@ error_reporting(E_ERROR | E_PARSE);
                                     echo "
                                     
                                     <tr>
-                                    <td><a href = '#'>$row[stdName]</td>
+                                    <td>$row[stdName]</td>
                                     <form method = 'post' action = 'assestSubjectProcess.php' class = 'submitAssSub'>
 
                                     ";

@@ -2,6 +2,7 @@
 
 include "sessionAdmin.php";
 include "sessionStaff.php";
+error_reporting(E_ERROR | E_PARSE);
 // include "leftSideBarAdmin.php";
 // include "dbconnect.php";
 
@@ -49,14 +50,21 @@ $salPaidColor = array("text-red", "text-green");
                                 $sql = "SELECT * FROM teacher WHERE tIC = '$tIC'";
                                 $resultsql = mysqli_query($con, $sql);
                                 $rowsql = mysqli_fetch_array($resultsql);
+
+                                echo'
+
+                                        <div class="row">
+                                            <div class="col-md-6"><h5>Name : '.$rowsql['tName'].'</h5></div>
+                                            <div class="col-md-6"><h5>Bank Account : '.$rowsql['tBank'].'  '.$rowsql['tBankAccount'].'</h5></div>
+                                            <div class="col-md-6"><h5>IC No. : '.$rowsql['tIC'].'</h5></div>
+                                            <div class="col-md-6"><h5>EPF Account : '.$rowsql['tEPF'].'</h5></div>
+                                        </div>
+                                        <br>
+
+
+                                ';
                                 
-                                echo"
-                                    <p>Name = $rowsql[tName]<br>IC No. = $rowsql[tIC]
-                                    <br>Bank = $rowsql[tBank]<br>Bank Account = $rowsql[tBankAccount]
-                                    <br>EPF Account = $rowsql[tEPF]</p><hr>
-                                ";
-                                
-                                echo "<input name = 'tIC' value = $tIC type = 'hidden'>
+                                echo "<input name = 'tIC' value = '$tIC' type = 'hidden'>
 								"; ?>							
 								<label><input name = "submit" type = "submit" class = "btn yellow pull-right" value = "Create Salary"></label>
 							</form>
@@ -108,7 +116,7 @@ $salPaidColor = array("text-red", "text-green");
                                         <td>$row[salEmployerEPF]</td>
                                         <td>$row[salNet]</td>
                                         <td>$salPaid[$sPS]</td>
-                                        <td><a href='salaryModifyAdmin.php?id=".$row['salID']."' class='btn btn-warning'>GO</a></td>
+                                        <td><a href='salaryModifyAdmin.php?id=".$row['salID']."' class='btn btn-warning'>Modify</a></td>
                                         ";
                                     }
                                 

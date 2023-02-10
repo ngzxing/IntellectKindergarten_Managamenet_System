@@ -31,7 +31,7 @@ include "dbconnect.php";
 	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
 	
 	<!-- PAGE TITLE HERE ============================================= -->
-	<title>EduChamp : Education HTML Template </title>
+	<title>Intellect Qalil IQ Playschool System</title>
 	
 	<!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,9 +79,9 @@ include "dbconnect.php";
 			<!--logo start -->
 			<div class="ttr-logo-box">
 				<div>
-					<a href="dashboardTeac.php" class="ttr-logo">
-						<img class="ttr-logo-mobile" alt="" src="assets/images/logo-mobile.png" width="30" height="30">
-						<img class="ttr-logo-desktop" alt="" src="assets/images/logo-white.png" width="160" height="27">
+					<a href="dashboardAdmin.php" class="ttr-logo">
+						<img class="ttr-logo-mobile" alt="" src="images/intellect_playschool.png" width="30" height="5">
+						<img class="ttr-logo-desktop" alt="" src="images/intellect_playschool.png" width="80" height="5">
 					</a>
 				</div>
 			</div>
@@ -90,17 +90,7 @@ include "dbconnect.php";
 				<!-- header left menu start -->
 				<ul class="ttr-header-navigation">
 					<li>
-						<a href="../dashboardTeac.php" class="ttr-material-button ttr-submenu-toggle">HOME</a>
-					</li>
-					<li>
-						<a href="#" class="ttr-material-button ttr-submenu-toggle">QUICK MENU <i class="fa fa-angle-down"></i></a>
-						<div class="ttr-header-submenu">
-							<ul>
-								<li><a href="../courses.php">Our Courses</a></li>
-								<li><a href="../event.php">New Event</a></li>
-								<li><a href="../membership.php">Membership</a></li>
-							</ul>
-						</div>
+						<a href="dashboardAdmin.php" class="ttr-material-button ttr-submenu-toggle">HOME</a>
 					</li>
 				</ul>
 				<!-- header left menu end -->
@@ -108,122 +98,17 @@ include "dbconnect.php";
 			<div class="ttr-header-right ttr-with-seperator">
 				<!-- header right menu start -->
 				<ul class="ttr-header-navigation">
+					
 					<li>
-						<a href="#" class="ttr-material-button ttr-search-toggle"><i class="fa fa-search"></i></a>
-					</li>
-					<li>
-						<a href="#" class="ttr-material-button ttr-submenu-toggle"><i class="fa fa-bell"></i></a>
-						<div class="ttr-header-submenu noti-menu">
-							<div class="ttr-notify-header">
-								<span class="ttr-notify-text-top">9 New</span>
-								<span class="ttr-notify-text">User Notifications</span>
-							</div>
-							<div class="noti-box-list">
-								<ul>
-									<li>
-										<span class="notification-icon dashbg-gray">
-											<i class="fa fa-check"></i>
-										</span>
-										<span class="notification-text">
-											<span>Sneha Jogi</span> sent you a message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 02:14</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-yellow">
-											<i class="fa fa-shopping-cart"></i>
-										</span>
-										<span class="notification-text">
-											<a href="#">Your order is placed</a> sent you a message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 7 Min</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-red">
-											<i class="fa fa-bullhorn"></i>
-										</span>
-										<span class="notification-text">
-											<span>Your item is shipped</span> sent you a message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 2 May</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-green">
-											<i class="fa fa-comments-o"></i>
-										</span>
-										<span class="notification-text">
-											<a href="#">Sneha Jogi</a> sent you a message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 14 July</span>
-										</span>
-									</li>
-									<li>
-										<span class="notification-icon dashbg-primary">
-											<i class="fa fa-file-word-o"></i>
-										</span>
-										<span class="notification-text">
-											<span>Sneha Jogi</span> sent you a message.
-										</span>
-										<span class="notification-time">
-											<a href="#" class="fa fa-close"></a>
-											<span> 15 Min</span>
-										</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li>
-						<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="" src="assets/images/testimonials/pic3.jpg" width="32" height="32"></span></a>
+						<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="" src="images/profileicon.jpg" width="32" height="32"></span></a>
 						<div class="ttr-header-submenu">
 							<ul>
 								<li><a href="profileTeac.php">My profile</a></li>
-								<li><a href="list-view-calendar.php">Activity</a></li>
-								<li><a href="mailbox.php">Messages</a></li>
 								<li><a href="logoutProcess.php">Logout</a></li>
 							</ul>
 						</div>
 					</li>
-					<li class="ttr-hide-on-mobile">
-						<a href="#" class="ttr-material-button"><i class="ti-layout-grid3-alt"></i></a>
-						<div class="ttr-header-submenu ttr-extra-menu">
-							<a href="#">
-								<i class="fa fa-music"></i>
-								<span>Musics</span>
-							</a>
-							<a href="#">
-								<i class="fa fa-youtube-play"></i>
-								<span>Videos</span>
-							</a>
-							<a href="#">
-								<i class="fa fa-envelope"></i>
-								<span>Emails</span>
-							</a>
-							<a href="#">
-								<i class="fa fa-book"></i>
-								<span>Reports</span>
-							</a>
-							<a href="#">
-								<i class="fa fa-smile-o"></i>
-								<span>Persons</span>
-							</a>
-							<a href="#">
-								<i class="fa fa-picture-o"></i>
-								<span>Pictures</span>
-							</a>
-						</div>
-					</li>
+				
 				</ul>
 				<!-- header right menu end -->
 			</div>
@@ -248,7 +133,7 @@ include "dbconnect.php";
 		<div class="ttr-sidebar-wrapper content-scroll">
 			<!-- side menu logo start -->
 			<div class="ttr-sidebar-logo">
-				<a href="#"><img alt="" src="assets/images/logo.png" width="122" height="27"></a>
+				<a href="#"><img alt="" src="images/intellect_playschool.png" width="75" height="5"></a>
 				<!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
 					<i class="material-icons ttr-fixed-icon">gps_fixed</i>
 					<i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
@@ -269,7 +154,7 @@ include "dbconnect.php";
 		            </li>
 					<li>
 						<a href="appointment.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-book"></i></span>
+							<span class="ttr-icon"><i class="ti-calendar"></i></span>
 		                	<span class="ttr-label">Appointment</span>
 		                </a>
 		            </li>
@@ -281,7 +166,22 @@ include "dbconnect.php";
 		            </li>
 					<li>
 						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-email"></i></span>
+							<span class="ttr-icon"><i class="ti-announcement"></i></span>
+		                	<span class="ttr-label">Post</span>
+		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+		                </a>
+		                <ul>
+		                	<li>
+		                		<a href="announcementEdit.php" class="ttr-material-button"><span class="ttr-label">Announcement</span></a>
+		                	</li>
+		                	<li>
+		                		<a href="activityPostTeac.php" class="ttr-material-button"><span class="ttr-label">Activity</span></a>
+		                	</li>
+		                </ul>
+		            </li>
+					<li>
+						<a href="#" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-receipt"></i></span>
 		                	<span class="ttr-label">Finance</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
@@ -290,7 +190,7 @@ include "dbconnect.php";
 		                		<a href="financialManage.php" class="ttr-material-button"><span class="ttr-label">Student Financial</span></a>
 		                	</li>
 		                	<li>
-		                		<a href="myTeac.php" class="ttr-material-button"><span class="ttr-label">Teacher Salary</span></a>
+		                		<a href="salaryTeac.php" class="ttr-material-button"><span class="ttr-label">Teacher Salary</span></a>
 		                	</li>
 							<li>
 		                		<a href="feeManage.php" class="ttr-material-button"><span class="ttr-label">Fee Item</span></a>
@@ -299,7 +199,7 @@ include "dbconnect.php";
 		            </li>
 					<li>
 						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-email"></i></span>
+							<span class="ttr-icon"><i class="ti-book"></i></span>
 		                	<span class="ttr-label">Playschool Configuration</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
@@ -320,7 +220,7 @@ include "dbconnect.php";
 		            </li>
 					<li>
 						<a href="add-listing.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
+							<span class="ttr-icon"><i class="ti-marker-alt"></i></span>
 		                	<span class="ttr-label">Student Assessment</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
@@ -345,7 +245,7 @@ include "dbconnect.php";
 		            </li>
 					<li>
 						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-comments"></i></span>
+							<span class="ttr-icon"><i class="ti-blackboard"></i></span>
 		                	<span class="ttr-label">Student Status</span>
 		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 		                </a>
@@ -360,7 +260,7 @@ include "dbconnect.php";
 		            </li>
 					<li>
 						<a href="profileTeac.php" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-book"></i></span>
+							<span class="ttr-icon"><i class="ti-user"></i></span>
 		                	<span class="ttr-label">My Profile</span>
 		                </a>
 		            </li>

@@ -4,7 +4,11 @@ include "sessionStaff.php";
 
 $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
 ?>
-
+<style>
+input[type="date"] { 
+  padding: 5px;
+}
+</style>
 
 <!--Main container start -->
 <main class="ttr-wrapper">
@@ -45,7 +49,7 @@ $datemax = date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days'));
                             ?>
                                     </select></label>
                                     
-                                    <label>Date <br><input class = "col-sm-12" name="attDate" max = <?php echo "$datemax"; ?> value="" type="date" required></label>
+                                    <label>Date <br><input class = "form-control" name="attDate" max = <?php echo "$datemax"; ?> value="" type="date" required></label>
 
                                     <input name="submit" class="mt-4 btn green pull-right" value="Submit" type="submit">
                                 </form>
